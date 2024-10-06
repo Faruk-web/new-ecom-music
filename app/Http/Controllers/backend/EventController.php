@@ -94,6 +94,8 @@ class EventController extends Controller
         $event->video_link = $request->video_link;
         $event->audio_link = $request->audio_link;
         $event->position = $request->position;
+        $event->short_descp = $request->short_descp;
+        $event->long_descp = $request->long_descp;
          // Handle video upload
         if ($request->hasFile('video')) {
             $event->video = $this->getFileUrl($request, 'video');
@@ -191,6 +193,8 @@ class EventController extends Controller
         $event->video_link = $request->video_link;
         $event->audio_link = $request->audio_link;
         $event->position = $request->position;
+        $event->short_descp = $request->short_descp;
+        $event->long_descp = $request->long_descp;
         // Handle video upload
         if ($request->hasFile('video')) {
             $event->video = $this->getFileUrl($request, 'video');
@@ -270,4 +274,18 @@ class EventController extends Controller
             return back();
         }
     }
+    public function eventdetail($id)
+    {
+        
+    $events= Event::with('brand')->find($id);
+    if (!is_null($events)) {
+        return view('theam.event_detail', compact('events'));
+    }
+    else {
+        session()->flash('error','Something went wrong !');
+        return back();
+    }
+
+    }
+    
 }

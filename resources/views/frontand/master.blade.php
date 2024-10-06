@@ -60,33 +60,7 @@
           <div class="off-canvas-body">
             <nav class="main-nav">
               <ul class="nav sf-menu expand-all">
-                <li class="mega-columns"><a href="home.html"><span class="menu-text">Home <i class="menu-icon fa fa-angle-down"></i></span></a>
-                  <ul class="row">
-                    <li class="col-xs-3 mega-col"><a href="home.html" class="mega-title"><span class="menu-text">Homepage Demos</span></a>
-                      <ul class="mega-content">
-                        <li class="active"><a href="home.html">Home 1</a></li>
-                        <li><a href="home-2.html">Home 2</a></li>
-                        <li><a href="home-3.html">Home 3</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-xs-3 mega-col"><a href="home.html" class="mega-title"><span class="menu-text">Homepage Demos</span></a>
-                      <ul class="mega-content">
-                        <li><a href="home-4.html">Home 4</a></li>
-                        <li><a href="home-5.html">Home 5</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-xs-3 mega-col"><a href="home.html" class="mega-title"><span class="menu-text">Homepage Demos</span></a>
-                      <ul class="mega-content">
-                        <li><a href="home-lookbook-1.html">Home Lookbook 1</a></li>
-                        <li><a href="home-lookbook-2.html">Home Lookbook 2</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-xs-3 mega-col"><a href="home.html" class="mega-title"><span class="menu-text">Homepage Demos</span></a>
-                      <ul class="mega-content">
-                        <li><a href="home-parallax.html">Home Parallax</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                <li class="mega-columns"><a href="{{route('index')}}"><span class="menu-text">Home <i class="menu-icon fa fa-angle-down"></i></span></a>
                 </li>
                 <li><a href="#"><span class="menu-text">Product <i class="menu-icon fa fa-angle-down"></i></span></a>
                   <ul>

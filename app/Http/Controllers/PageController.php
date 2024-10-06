@@ -5,6 +5,8 @@ use App\Models\Page;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Event;
+
 use App\Models\ProductRefund;
 use App\Models\ProductVariation;
 use App\Models\RatingReview;
@@ -63,15 +65,14 @@ class PageController extends Controller
         // dd($products);
         $brand = Brand::limit(10)->orderBy('id', 'desc')->get();
         $random_products = Product::where('vendor_p', 1)->where('is_active', 1)->orderBy('id', 'DESC')->limit(12)->get();
-        $vendor_products = Product::where('is_active', 1)->inRandomOrder()->limit(12)->get();
+        $events = Event::inRandomOrder()->select('id','title','image','short_descp')->limit(12)->get();
         $deals = Product::where('is_active', 1)->inRandomOrder()->limit(2)->get();
         $categories = Category::where('is_active', 1)->where('parent_id', 0)->orderBy('position', 'ASC')->get();
         $featured_categories = Category::where('is_active', 1)->where('is_featured', 1)->get();
         $sliders = Slider::all();
         $top_sales = Product::where('is_active', 1)->orderBy('sold', 'DESC')->limit(3)->get();
         $page = Page::find(1);
-//        $vendor_products = Product::where('vendor_p', 1)->latest()->take(8)->get();
-        return view('theam.index', compact('products','brand', 'categories', 'featured_categories', 'deals', 'random_products', 'sliders', 'page', 'top_sales','vendor_products'));
+        return view('theam.index', compact('products','brand', 'categories', 'featured_categories', 'deals', 'random_products', 'sliders', 'page', 'top_sales','events'));
     }
 
 
@@ -81,11 +82,7 @@ class PageController extends Controller
         $page = Page::find(2);
         $min_price = Product::min('price');
         $max_price = Product::max('price');
-//        foreach ($products as $product)
-//        {
-//            $path1 = asset($product->image);
-//            $path2 = asset('images/product/'. $product->image);
-//        }
+
         return view('pages.products', compact('products', 'page', 'min_price', 'max_price'));
     }
 
@@ -114,7 +111,7 @@ class PageController extends Controller
             $posts = Product::get();
             $cart = Cart::content();
             $vendor_info = Product::with('user')->find($id);
-            $similar_products = Product::where('category_id', $product->category_id)->inRandomOrder()->take(6)->get();
+            $similar_products = Product::where('category_id', $product->category_id)->inRandomOrder()->take(4)->get();
             $vendor_products = Product::where('user_id', $user_id)->inRandomOrder()->limit(6)->get();
             $selectedColorIds = explode(',', $product->color_id);
             $colors = Color::whereIn('id', $selectedColorIds)->get();

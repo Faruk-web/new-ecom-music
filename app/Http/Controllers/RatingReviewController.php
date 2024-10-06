@@ -84,4 +84,33 @@ class RatingReviewController extends Controller
         $rating->delete();
         return redirect()->back()->with('success', 'Rating and raview delete successfull');
     }
+      // ================ckeditor==============
+      public function imgupload(Request $request)
+      {
+          if ($request->hasFile('upload')) {
+              // Get original file information
+              $originName = $request->file('upload')->getClientOriginalName();
+              $fileName = pathinfo($originName, PATHINFO_FILENAME);
+              $extensionName = $request->file('upload')->getClientOriginalExtension();
+              $fileName = $fileName . '_' . time() . '.' . $extensionName;
+      
+              // Define the destination path for music_source folder
+              $destinationPath = public_path('music_source/editor');
+              
+              // Move the file to the music_source folder
+              $request->file('upload')->move($destinationPath, $fileName);
+      
+              // Get CKEditor function number and prepare the URL to return
+              $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+              $url = asset('music_source/editor/' . $fileName);
+              // Prepare response message
+              $msg = 'File uploaded successfully';
+              $response = "$url";
+              dd($response);
+              // Set header and return response
+              @header('Content-type: text/html; charset=utf-8');
+              return $response;
+          }
+      }
+      
 }

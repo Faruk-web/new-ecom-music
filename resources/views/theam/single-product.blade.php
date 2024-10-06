@@ -1,7 +1,7 @@
 @extends('frontand.master')
 @section('content')
 <section class="main-banner mv-wrap">
-        <div data-image-src="{{ asset('/') }}music_source/images/background/demo_bg_1920x1680.png" class="mv-banner-style-1 mv-bg-overlay-dark overlay-0-85 mv-parallax">
+        <div data-image-src="{{ asset('/') }}music_source/theme/1.jpg" class="mv-banner-style-1 mv-bg-overlay-dark overlay-0-85 mv-parallax">
           <div class="page-name mv-caption-style-6">
             <div class="container">
               <div class="mv-title-style-9"><span class="main">product detail</span><img src="{{ asset('/') }}music_source/images/icon/icon_line_polygon_line.png" alt="icon" class="line"/></div>
@@ -485,11 +485,11 @@
           <div class="related-main">
             <div class="related-list mv-block-style-9">
               <div class="block-9-list">
+              @foreach($similar_products as $product)
                 <article class="col-xs-6 col-sm-4 col-md-3 item post">
                   <div class="item-inner mv-effect-translate-1">
                     <div class="content-thumb">
-                      <div class="thumb-inner mv-effect-relative"><a href="product-detail.html" title="RST Full Zipped Sweatshirt"><img src="images/demo/demo_300x400.png" alt="demo" class="mv-effect-item"/></a>
-
+                      <div class="thumb-inner mv-effect-relative"><a href="{{ route('single.product', [$product->id, Str::slug($product->title)]) }}" title="RST Full Zipped Sweatshirt"><img src="{{asset($product->image)}}" alt="demo" class="mv-effect-item"/></a>
                         <div onclick="$(this).remove()" class="content-sale-off mv-label-style-2 text-center">
                           <div class="label-2-inner">
                             <ul class="label-2-ul">
@@ -508,7 +508,6 @@
                         <div class="content-button mv-btn-group text-center">
                           <div class="group-inner">
                             <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-wishlist"><i class="fa fa-heart-o"></i></button>
-                            <button type="button" class="mv-btn mv-btn-style-1 btn-1-h-40 responsive-btn-1-type-1 btn-compare"><span class="btn-inner"><i class="btn-icon fa fa-signal"></i><span class="btn-text">compare</span></span></button>
                             <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-cart"><i class="fa fa-cart-plus"></i></button>
                           </div>
                         </div>
@@ -524,146 +523,12 @@
                       </div>
 
                       <div class="content-price"><span class="new-price">$ 128.24</span><span class="old-price">$ 170.99</span></div>
-                      <div class="content-desc"><a href="product-detail.html" title="RST Full Zipped Sweatshirt" class="mv-overflow-ellipsis">RST Full Zipped Sweatshirt</a></div>
+                      <div class="content-desc"><a href="{{ route('single.product', [$product->id, Str::slug($product->title)]) }}" title="RST Full Zipped Sweatshirt" class="mv-overflow-ellipsis">RST Full Zipped Sweatshirt</a></div>
                     </div>
                   </div>
                 </article>
                 <!-- .post-->
-
-                <article class="col-xs-6 col-sm-4 col-md-3 item post">
-                  <div class="item-inner mv-effect-translate-1">
-                    <div class="content-thumb">
-                      <div class="thumb-inner mv-effect-relative"><a href="product-detail.html" title="RST Full Zipped Sweatshirt"><img src="images/demo/demo_300x400.png" alt="demo" class="mv-effect-item"/></a>
-
-                        <div onclick="$(this).remove()" class="content-sale-off mv-label-style-2 text-center">
-                          <div class="label-2-inner">
-                            <ul class="label-2-ul">
-                              <li class="number">-25%</li>
-                              <li class="text">sale</li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div class="content-message mv-message-style-1">
-                          <div class="message-inner"></div>
-                        </div>
-                      </div>
-
-                      <div class="content-hover">
-                        <div class="content-button mv-btn-group text-center">
-                          <div class="group-inner">
-                            <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-wishlist"><i class="fa fa-heart-o"></i></button>
-                            <button type="button" class="mv-btn mv-btn-style-1 btn-1-h-40 responsive-btn-1-type-1 btn-compare"><span class="btn-inner"><i class="btn-icon fa fa-signal"></i><span class="btn-text">compare</span></span></button>
-                            <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-cart"><i class="fa fa-cart-plus"></i></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="content-default">
-                      <div data-rate="true" data-score="5.0" class="content-rate mv-rate text-center">
-                        <div class="rate-inner mv-f-14 text-left">
-                          <div class="stars-wrapper empty-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
-                          <div class="stars-wrapper filled-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
-                        </div>
-                      </div>
-
-                      <div class="content-price"><span class="new-price">$ 128.24</span><span class="old-price">$ 170.99</span></div>
-                      <div class="content-desc"><a href="product-detail.html" title="RST Full Zipped Sweatshirt" class="mv-overflow-ellipsis">RST Full Zipped Sweatshirt</a></div>
-                    </div>
-                  </div>
-                </article>
-                <!-- .post-->
-
-                <article class="col-xs-6 col-sm-4 col-md-3 item post">
-                  <div class="item-inner mv-effect-translate-1">
-                    <div class="content-thumb">
-                      <div class="thumb-inner mv-effect-relative"><a href="product-detail.html" title="RST Full Zipped Sweatshirt"><img src="images/demo/demo_300x400.png" alt="demo" class="mv-effect-item"/></a>
-
-                        <div onclick="$(this).remove()" class="content-sale-off mv-label-style-2 text-center">
-                          <div class="label-2-inner">
-                            <ul class="label-2-ul">
-                              <li class="number">-25%</li>
-                              <li class="text">sale</li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div class="content-message mv-message-style-1">
-                          <div class="message-inner"></div>
-                        </div>
-                      </div>
-
-                      <div class="content-hover">
-                        <div class="content-button mv-btn-group text-center">
-                          <div class="group-inner">
-                            <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-wishlist"><i class="fa fa-heart-o"></i></button>
-                            <button type="button" class="mv-btn mv-btn-style-1 btn-1-h-40 responsive-btn-1-type-1 btn-compare"><span class="btn-inner"><i class="btn-icon fa fa-signal"></i><span class="btn-text">compare</span></span></button>
-                            <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-cart"><i class="fa fa-cart-plus"></i></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="content-default">
-                      <div data-rate="true" data-score="5.0" class="content-rate mv-rate text-center">
-                        <div class="rate-inner mv-f-14 text-left">
-                          <div class="stars-wrapper empty-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
-                          <div class="stars-wrapper filled-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
-                        </div>
-                      </div>
-
-                      <div class="content-price"><span class="new-price">$ 128.24</span><span class="old-price">$ 170.99</span></div>
-                      <div class="content-desc"><a href="product-detail.html" title="RST Full Zipped Sweatshirt" class="mv-overflow-ellipsis">RST Full Zipped Sweatshirt</a></div>
-                    </div>
-                  </div>
-                </article>
-                <!-- .post-->
-
-                <article class="col-xs-6 col-sm-4 col-md-3 item post">
-                  <div class="item-inner mv-effect-translate-1">
-                    <div class="content-thumb">
-                      <div class="thumb-inner mv-effect-relative"><a href="product-detail.html" title="RST Full Zipped Sweatshirt"><img src="images/demo/demo_300x400.png" alt="demo" class="mv-effect-item"/></a>
-
-                        <div onclick="$(this).remove()" class="content-sale-off mv-label-style-2 text-center">
-                          <div class="label-2-inner">
-                            <ul class="label-2-ul">
-                              <li class="number">-25%</li>
-                              <li class="text">sale</li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div class="content-message mv-message-style-1">
-                          <div class="message-inner"></div>
-                        </div>
-                      </div>
-
-                      <div class="content-hover">
-                        <div class="content-button mv-btn-group text-center">
-                          <div class="group-inner">
-                            <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-wishlist"><i class="fa fa-heart-o"></i></button>
-                            <button type="button" class="mv-btn mv-btn-style-1 btn-1-h-40 responsive-btn-1-type-1 btn-compare"><span class="btn-inner"><i class="btn-icon fa fa-signal"></i><span class="btn-text">compare</span></span></button>
-                            <button type="button" class="mv-btn mv-btn-style-3 btn-3-h-40 responsive-btn-3-type-1 btn-add-to-cart"><i class="fa fa-cart-plus"></i></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="content-default">
-                      <div data-rate="true" data-score="5.0" class="content-rate mv-rate text-center">
-                        <div class="rate-inner mv-f-14 text-left">
-                          <div class="stars-wrapper empty-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
-                          <div class="stars-wrapper filled-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
-                        </div>
-                      </div>
-
-                      <div class="content-price"><span class="new-price">$ 128.24</span><span class="old-price">$ 170.99</span></div>
-                      <div class="content-desc"><a href="product-detail.html" title="RST Full Zipped Sweatshirt" class="mv-overflow-ellipsis">RST Full Zipped Sweatshirt</a></div>
-                    </div>
-                  </div>
-                </article>
-                <!-- .post-->
+                @endforeach
               </div>
             </div>
           </div>

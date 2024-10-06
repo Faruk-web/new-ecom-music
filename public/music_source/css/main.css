@@ -215,7 +215,7 @@ h6 {
   background-color: #fff;
 }
 .mv-bg-gray {
-  background-color: #f6f6f6;
+  background-color: #1c0202;
 }
 .mv-bg-overlay-dark {
   position: relative;
@@ -649,11 +649,11 @@ h6 {
   }
 }
 .mv-title-style-2.title-home-3 .main {
-  color: #262b30;
+  color: #fff;
   margin-bottom: 0;
 }
 .mv-title-style-2.title-home-3 .sub {
-  color: #5c6064;
+  color: #fff;
 }
 .mv-title-style-3 {
   text-align: center;
@@ -7875,6 +7875,7 @@ select option.option-please-select {
 .mv-block-style-2 .content-hover {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  text-align: center;
 }
 .mv-block-style-2 .content-thumb {
   position: absolute;
@@ -8015,6 +8016,7 @@ select option.option-please-select {
 .mv-block-style-2 .content-price .old-price:last-child,
 .mv-block-style-2 .content-price .new-price:last-child {
   margin-right: 0 !important;
+  font-size: 16px;
 }
 .mv-block-style-2 .content-price .old-price {
   color: #b9b9ba;
@@ -16011,6 +16013,7 @@ select option.option-please-select {
 .mv-block-style-40 .mv-slick-slide {
   position: relative;
   margin-bottom: 115px;
+  margin-bottom: 24px;
 }
 @media screen and (max-width: 991px) {
   .mv-block-style-40 .mv-slick-slide {

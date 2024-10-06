@@ -131,8 +131,8 @@
                               <div class="form-group col-md-9">
                               <div class="form-check form-check-inline ">
                                   <input class="form-check-input group1" id="is_active" type="checkbox" checked name="is_active" value="2" @if($brand->is_active == 2) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success" style="height: 50px; width: 30px" >
-                                      <label class="form-check-label" for="is_active">Only Brand</label>
-                                  </div>
+                                   <label class="form-check-label" for="is_active">Only Brand</label>
+                              </div>
                             </div>
                                 <div class="form-group">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

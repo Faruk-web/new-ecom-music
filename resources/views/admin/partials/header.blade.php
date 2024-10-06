@@ -71,7 +71,7 @@
   </style>
   @yield('style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.tiny.cloud/1/yze2qblheth712tqw6y3f30283f8nch1bogp0jzpsm3rn79f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <!-- <script src="https://cdn.tiny.cloud/1/yze2qblheth712tqw6y3f30283f8nch1bogp0jzpsm3rn79f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>

@@ -52,6 +52,7 @@ Route::post('rating-review', [RatingReviewController::class, 'index'])->name('su
 Route::get('rating-review-show', [RatingReviewController::class, 'show'])->name('rating-review.show');
 
 Route::post('rating-review-delete/{id}', [RatingReviewController::class, 'delete'])->name('rating-review.delete');
+Route::get('event/details/{id}', [EventController::class, 'eventdetail'])->name('event.details');
 
 Route::get('social-share', [SocialShareController::class, 'index']);
 Route::post('vendor/login/store',[UserController::class, 'vendorLogin'] )->name('vendor.login.store');
@@ -64,6 +65,7 @@ Route::get('/return-and-refund-policy', [\App\Http\Controllers\RefundController:
 
 Route::post('/cart/increment/{id}', 'CartController@increment')->name('cart.increment');
 Route::post('/cart/decrement/{id}', 'CartController@decrement')->name('cart.decrement');
+Route::post('ck-editor/imgupload', [RatingReviewController::class,'imgupload'])->name('ckeditor.upload');
 
 Route::get('/products', [App\Http\Controllers\PageController::class, 'products'])->name('products');
 Route::get('/offer-products', [App\Http\Controllers\PageController::class, 'offer_products'])->name('offer.products');
