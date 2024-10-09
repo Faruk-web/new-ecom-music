@@ -161,20 +161,20 @@ class ProductController extends Controller
         $product->weight = $request->weight;
         $product->code = 'UL'.'-'.$this->generateUniqueCode();
         $product->product_variation = $request->product_variation;
-        if (!$request->retail) {
-            $product->retail = 2;
+        if (!$request->qpparels) {
+            $product->qpparels = 2;
         } else {
-            $product->retail = 1;
+            $product->qpparels = 1;
         }
-        if (!$request->cross_border) {
-            $product->cross_border = 2;
+        if (!$request->accessories) {
+            $product->accessories = 2;
         } else {
-            $product->cross_border = 1;
+            $product->accessories = 1;
         }
-        if (!$request->pre_order) {
-            $product->pre_order = 2;
+        if (!$request->limited_edition) {
+            $product->limited_edition = 2;
         } else {
-            $product->pre_order = 1;
+            $product->limited_edition = 1;
         }
         if ($request->image) {
             $image = $request->file('image');
@@ -216,20 +216,20 @@ class ProductController extends Controller
         $product->unit = $request->unit;
         $product->weight = $request->weight;
         $product->product_variation = $request->product_variation;
-        if (!$request->retail) {
-            $product->retail = 2;
+        if (!$request->qpparels) {
+            $product->qpparels = 2;
         } else {
-            $product->retail = 1;
+            $product->qpparels = 1;
         }
-        if (!$request->cross_border) {
-            $product->cross_border = 2;
+        if (!$request->accessories) {
+            $product->accessories = 2;
         } else {
-            $product->cross_border = 1;
+            $product->accessories = 1;
         }
-        if (!$request->pre_order) {
-            $product->pre_order = 2;
+        if (!$request->limited_edition) {
+            $product->limited_edition = 2;
         } else {
-            $product->pre_order = 1;
+            $product->limited_edition = 1;
         }
         if ($request->image) {
             if (file_exists($product->image))
@@ -363,20 +363,20 @@ class ProductController extends Controller
         $product->weight = $request->weight;
         $product->code = 'UL'.'-'.$this->generateUniqueCode();
         $product->product_variation = $request->product_variation;
-        if (!$request->retail) {
-            $product->retail = 2;
+        if (!$request->qpparels) {
+            $product->qpparels = 2;
         } else {
-            $product->retail = 1;
+            $product->qpparels = 1;
         }
-        if (!$request->cross_border) {
-            $product->cross_border = 2;
+        if (!$request->accessories) {
+            $product->accessories = 2;
         } else {
-            $product->cross_border = 1;
+            $product->accessories = 1;
         }
-        if (!$request->pre_order) {
-            $product->pre_order = 2;
+        if (!$request->limited_edition) {
+            $product->limited_edition = 2;
         } else {
-            $product->pre_order = 1;
+            $product->limited_edition = 1;
         }
         if ($request->image) {
             if (file_exists($product->image))
@@ -526,20 +526,20 @@ class ProductController extends Controller
             $product->code = $this->generateUniqueCode();
         }
         $product->product_variation = $request->product_variation;
-        if (!$request->retail) {
-            $product->retail = 2;
+        if (!$request->qpparels) {
+            $product->qpparels = 2;
         } else {
-            $product->retail = 1;
+            $product->qpparels = 1;
         }
-        if (!$request->cross_border) {
-            $product->cross_border = 2;
+        if (!$request->accessories) {
+            $product->accessories = 2;
         } else {
-            $product->cross_border = 1;
+            $product->accessories = 1;
         }
-        if (!$request->pre_order) {
-            $product->pre_order = 2;
+        if (!$request->limited_edition) {
+            $product->limited_edition = 2;
         } else {
-            $product->pre_order = 1;
+            $product->limited_edition = 1;
         }
         if ($request->product_variation == 1) {
             $product->color_id = implode(',', $request->color_id);
@@ -695,20 +695,20 @@ class ProductController extends Controller
                 $product->code = $this->generateUniqueCode();
             }
             $product->product_variation = $request->product_variation;
-            if (!$request->retail) {
-                $product->retail = 2;
+            if (!$request->qpparels) {
+                $product->qpparels = 2;
             } else {
-                $product->retail = 1;
+                $product->qpparels = 1;
             }
-            if (!$request->cross_border) {
-                $product->cross_border = 2;
+            if (!$request->accessories) {
+                $product->accessories = 2;
             } else {
-                $product->cross_border = 1;
+                $product->accessories = 1;
             }
-            if (!$request->pre_order) {
-                $product->pre_order = 2;
+            if (!$request->limited_edition) {
+                $product->limited_edition = 2;
             } else {
-                $product->pre_order = 1;
+                $product->limited_edition = 1;
             }
             if ($request->product_variation == 1) {
                 $product->color_id = implode(',', $request->color_id);

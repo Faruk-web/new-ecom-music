@@ -40,8 +40,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline ">
-                                            <input class="form-check-input group1" id="retail" type="checkbox" name="retail" value="1" value="1" style="height: 30px; width: 20px" {{$product->retail == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="retail">Retail</label>
+                                            <input class="form-check-input group1" id="retail" type="checkbox" name="qpparels" value="1" value="1" style="height: 30px; width: 20px" {{$product->qpparels == 1 ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="retail">Apparels</label>
                                         </div>
                                     </div>
                                 </div>
@@ -50,8 +50,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline my-checkbox">
-                                            <input class="form-check-input group1" id="noCrossCheck" type="checkbox" name="cross_border" value="1" value="1" style="height: 30px; width: 20px" {{$product->cross_border == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="noCrossCheck">Cross Border</label>
+                                            <input class="form-check-input group1" id="noCrossCheck" type="checkbox" name="accessories" value="1" value="1" style="height: 30px; width: 20px" {{$product->accessories == 1 ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="noCrossCheck">Accessories</label>
                                         </div>
                                     </div>
                                 </div>
@@ -60,8 +60,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline my-checkbox">
-                                            <input class="form-check-input group1" id="preOrderCheck" type="checkbox" name="pre_order" value="1" value="1" style="height: 30px; width: 20px" {{$product->pre_order == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="preOrderCheck">Pre-order</label>
+                                            <input class="form-check-input group1" id="preOrderCheck" type="checkbox" name="limited_edition" value="1" value="1" style="height: 30px; width: 20px" {{$product->limited_edition == 1 ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="preOrderCheck">Limited Edition</label>
                                         </div>
                                     </div>
                                 </div>

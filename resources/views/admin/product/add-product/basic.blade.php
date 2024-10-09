@@ -38,8 +38,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline ">
-                                            <input class="form-check-input group1" id="retail" type="checkbox" checked name="retail" value="1" value="1" style="height: 30px; width: 20px" >
-                                            <label class="form-check-label" for="retail">Retail</label>
+                                            <input class="form-check-input group1" id="retail" type="checkbox" checked name="qpparels" value="1" value="1" style="height: 30px; width: 20px" >
+                                            <label class="form-check-label" for="retail">Apparels</label>
                                         </div>
                                     </div>
                                 </div>
@@ -48,8 +48,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline my-checkbox">
-                                            <input class="form-check-input group1" id="noCrossCheck" type="checkbox" name="cross_border" value="1" value="1" style="height: 30px; width: 20px" >
-                                            <label class="form-check-label" for="noCrossCheck">Cross Border</label>
+                                            <input class="form-check-input group1" id="noCrossCheck" type="checkbox" name="accessories" value="1" value="1" style="height: 30px; width: 20px" >
+                                            <label class="form-check-label" for="noCrossCheck">Accessories</label>
                                         </div>
                                     </div>
                                 </div>
@@ -58,8 +58,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline my-checkbox">
-                                            <input class="form-check-input group1" id="preOrderCheck" type="checkbox" name="pre_order" value="1" value="1" style="height: 30px; width: 20px" >
-                                            <label class="form-check-label" for="preOrderCheck">Pre-order</label>
+                                            <input class="form-check-input group1" id="preOrderCheck" type="checkbox" name="limited_edition" value="1" value="1" style="height: 30px; width: 20px" >
+                                            <label class="form-check-label" for="preOrderCheck">Limited Edition</label>
                                         </div>
                                     </div>
                                 </div>
@@ -69,47 +69,56 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="mb-3">
                         <label for="productname">Product Name</label>
                         <input id="productname" name="title" type="text" class="form-control" placeholder="Product Name" @error('title') is-invalid @enderror  />
                         @error('title')
                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Select Category</label>
-                        <select class="form-control" name="category_id" id="category_id">
-                            <option selected disabled>Select Category</option>
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->title}}</option>
-                            @endforeach
+                <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Brand</label>
+                        <select name="brand_id" id="brand" class="form-control @error('brand_id') is-invalid @enderror">
+                          <option value="0">Please Select a Brand</option>
+                          @foreach($brands as $brand)
+                          <option value="{{ $brand->id }}">{{ $brand->title }}</option>
+                          @endforeach
                         </select>
+                        @error('brand_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Category</label>
+                        <select name="category_id" id="category" class="form-control @error('category_id') is-invalid @enderror">
+                          <option value="0">Please Select a Category</option>
+                        </select>
+                        @error('category_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
+                    </div>
+                <!-- <div class="col-sm-6">
                     <div class="mb-3">
                         <label class="control-label">Sub Category</label>
                         <select id="sub_category" name="sub_category_id" class=" form-control @error('sub_category_id') is-invalid @enderror">
                             <option value="">Please Select a Sub Category</option>
                         </select>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label for="manufacturername">Brand</label>
-                        <select name="brand_id" class="form-control select2-custom">
-                            <option selected disabled>Select Brand</option>
-                            @foreach($brands as $brand)
-                                <option value="{{$brand->id}}">{{$brand->title}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+                </div> -->
+                
                 <div class="col-sm-6">
                     <div class="mb-3">
                         <label for="code">Product Code</label>
@@ -400,4 +409,39 @@
             reader.readAsDataURL(file);
         }
     });
+</script>
+<script>
+  document.getElementById('brand').addEventListener('change', function() {
+    var brandId = this.value;
+    if (brandId != 0) {
+      // Make an AJAX request to fetch categories for the selected brand
+      fetch('/home/categories/' + brandId)
+        .then(response => {
+          console.log("Fetch response: ", response); // Debugging: Log the response
+
+          if (!response.ok) {
+            throw new Error("Network response was not ok"); // Handle any response errors
+          }
+
+          return response.json();
+        })
+        .then(data => {
+          console.log("Categories fetched: ", data); // Debugging: Log the fetched categories
+          var categorySelect = document.getElementById('category');
+          categorySelect.innerHTML = '<option value="0">Please Select a Category</option>';
+
+          // Add the fetched categories to the dropdown
+          data.forEach(function(category) {
+            var option = document.createElement('option');
+            option.value = category.id;
+            option.text = category.title;
+            categorySelect.appendChild(option);
+          });
+        })
+        .catch(error => console.error('Error fetching categories:', error)); // Catch and log any errors
+    } else {
+      // Clear the category dropdown if no brand is selected
+      document.getElementById('category').innerHTML = '<option value="0">Please Select a Category</option>';
+    }
+  });
 </script>

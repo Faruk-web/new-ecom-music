@@ -45,20 +45,20 @@ class VendorProductController extends Controller
         } else {
             $product->wholesale = 1;
         }
-        if (!$request->retail) {
-            $product->retail = 2;
+        if (!$request->qpparels) {
+            $product->qpparels = 2;
         } else {
-            $product->retail = 1;
+            $product->qpparels = 1;
         }
-        if (!$request->cross_border) {
-            $product->cross_border = 2;
+        if (!$request->accessories) {
+            $product->accessories = 2;
         } else {
-            $product->cross_border = 1;
+            $product->accessories = 1;
         }
-        if (!$request->pre_order) {
-            $product->pre_order = 2;
+        if (!$request->limited_edition) {
+            $product->limited_edition = 2;
         } else {
-            $product->pre_order = 1;
+            $product->limited_edition = 1;
         }
         if ($request->image) {
             $image = $request->file('image');
@@ -148,20 +148,20 @@ class VendorProductController extends Controller
                 $variant->delete();
             }
         }
-        if (!$request->retail) {
-            $product->retail = 2;
+        if (!$request->qpparels) {
+            $product->qpparels = 2;
         } else {
-            $product->retail = 1;
+            $product->qpparels = 1;
         }
-        if (!$request->cross_border) {
-            $product->cross_border = 2;
+        if (!$request->accessories) {
+            $product->accessories = 2;
         } else {
-            $product->cross_border = 1;
+            $product->accessories = 1;
         }
-        if (!$request->pre_order) {
-            $product->pre_order = 2;
+        if (!$request->limited_edition) {
+            $product->limited_edition = 2;
         } else {
-            $product->pre_order = 1;
+            $product->limited_edition = 1;
         }
         if ($request->image) {
             if (file_exists($product->image))
@@ -273,6 +273,7 @@ class VendorProductController extends Controller
 
     public function editUpdate1(Request $request)
     {
+       
 //        $submission = Product::where('id',$request->product_id)->first();
         $product = Product::findOrNew($request->product_id);
         $product->title = $request->title;
@@ -309,20 +310,20 @@ class VendorProductController extends Controller
                 $variant->delete();
             }
         }
-        if (!$request->retail) {
-            $product->retail = 2;
+        if (!$request->qpparels) {
+            $product->qpparels = 2;
         } else {
-            $product->retail = 1;
+            $product->qpparels = 1;
         }
-        if (!$request->cross_border) {
-            $product->cross_border = 2;
+        if (!$request->accessories) {
+            $product->accessories = 2;
         } else {
-            $product->cross_border = 1;
+            $product->accessories = 1;
         }
-        if (!$request->pre_order) {
-            $product->pre_order = 2;
+        if (!$request->limited_edition) {
+            $product->limited_edition = 2;
         } else {
-            $product->pre_order = 1;
+            $product->limited_edition = 1;
         }
         if ($request->image) {
             if (file_exists($product->image))
