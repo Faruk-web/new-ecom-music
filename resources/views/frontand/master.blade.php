@@ -40,6 +40,79 @@
     
     -->
 
+    <style>
+                  /* Positioning for the bars container */
+            .bars2 {
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 143px;
+              margin: 0 auto;
+            }
+            
+            /* Individual bars styling */
+            .bars {
+              position: absolute;
+              top: 70px;
+              width: 40px;
+              left: 2px;
+            }
+            
+            .bar {
+              background: #ef5e5e;
+              bottom: 1px;
+              height: 3px;
+              position: absolute;
+              width: 3px;
+              border-radius: 2px;
+              animation: sound 0ms -800ms linear infinite alternate;
+            }
+            
+            /* Keyframes for smooth sound bar animation */
+            @keyframes sound {
+              0% {
+                opacity: 0.35;
+                height: 3px;
+              }
+              100% {
+                opacity: 1;
+                height: 20px;
+              }
+            }
+            
+            /* Duration for each bar to create a sound wave-like animation */
+            .bar:nth-child(1)  { left: 1px;  animation-duration: 474ms; }
+            .bar:nth-child(2)  { left: 5px;  animation-duration: 433ms; }
+            .bar:nth-child(3)  { left: 9px;  animation-duration: 407ms; }
+            .bar:nth-child(4)  { left: 13px; animation-duration: 458ms; }
+            .bar:nth-child(5)  { left: 17px; animation-duration: 400ms; }
+            .bar:nth-child(6)  { left: 21px; animation-duration: 427ms; }
+            .bar:nth-child(7)  { left: 25px; animation-duration: 441ms; }
+            .bar:nth-child(8)  { left: 29px; animation-duration: 419ms; }
+            .bar:nth-child(9)  { left: 33px; animation-duration: 487ms; }
+            .bar:nth-child(10) { left: 37px; animation-duration: 442ms; }
+            
+            /* General styling for the landing item container */
+            .landing-item-inner {
+              background: #111;
+              border-radius: 10px;
+              height: auto;
+              border: 3px solid #ef5e5e;
+            }
+            
+            /* Links styling */
+            .template-list a {
+              color: #fff;
+              text-decoration: none;
+            }
+            
+            .template-list a:hover {
+              color: #ef5e5e;
+              transition: all 0.5s ease-in-out;
+            }
+            
+    </style>
+
   </head>
   <body>
     <div class="mv-site">

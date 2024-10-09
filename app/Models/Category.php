@@ -17,7 +17,10 @@ class Category extends Model
     {
         return $this->belongsTo(Brand::class, 'parent_id');
     }
-    
+    public function music()
+    {
+        return $this->hasMany(MusicModel::class, 'category_id');
+    }
     public function product()
     {
         return $this->hasMany(Product:: class);

@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Event;
+use App\Models\MusicModel;
 
 use App\Models\ProductRefund;
 use App\Models\ProductVariation;
@@ -76,16 +77,25 @@ class PageController extends Controller
     }
 
 
-    public function products()
+    public function products($id)
     {
-        $products = Product::where('is_active', 1)->orderBy('id', 'DESC')->paginate(30);
-        $page = Page::find(2);
-        $min_price = Product::min('price');
-        $max_price = Product::max('price');
-
-        return view('pages.products', compact('products', 'page', 'min_price', 'max_price'));
+        $brand = Brand::find($id);
+        $products = Product::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
+        return view('theam.products', compact('products'));
     }
-
+    public function events($id)
+    {
+        $brand = Brand::find($id);
+        $events = Event::where('parent_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
+        return view('theam.events', compact('events'));
+    }
+    public function musics($id)
+    {
+        $brand = Brand::find($id);
+        $musics = MusicModel::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
+        $category = Category::with('music')->where('parent_id', $brand->id)->orderBy('id', 'DESC')->get();
+        return view('theam.musics', compact('musics','category'));
+    }
     public function offer_products()
     {
         $products = Product::where('is_active', 1)->where('is_sale', 1)->orderBy('id', 'DESC')->get();

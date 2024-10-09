@@ -79,52 +79,30 @@
                         <input id="productname" name="title" value="{{$product->title}}" type="text" class="form-control" placeholder="Product Name" @error('title') is-invalid @enderror  />
                         @error('title')
                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                     </div>
                 </div>
-                {{-- @dd($product); --}}
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Select Category</label>
-                        <select class="form-control" name="category_id" id="category_id">
-                            <option selected disabled>Select Category</option>
-                            {{-- <option value="{{ $category_edit->id }}">{{ $category_edit->title }}</option> --}}
-                            @foreach ($categories as $category)
-                            <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected' : ''}}>{{$category->title}}</option>
-                            @endforeach
-                            {{-- @foreach($categories as $category)
-                                <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected' : ''}}>{{$category->title}}</option>
-                            @endforeach --}}
+
+                <div class="col-md-3">
+                       <div class="form-group">
+                        <label>Brand Name</label>
+                        <select name="brand_id" id="brand_id" class="form-control @error('brand_id') is-invalid @enderror">
+                          <option value="{{ $product->brand->id }}">{{ $product->brand->title }}</option>
                         </select>
+                      </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Sub Category</label>
-                        <select id="sub_category" name="sub_category_id" class=" form-control @error('sub_category_id') is-invalid @enderror">
-                            <option value="">Please Select a Sub Category</option>
-                            {{-- <option value="{{$category_edit->id}}" {{$category_edit->id == $product->sub_category_id ? 'selected' : ''}}>{{$category_edit->title}}</option> --}}
-                            @foreach($categories as $category)
-                                @foreach($category->child as $subCategory)
-                                <option value="{{$subCategory->id}}" {{$subCategory->id == $product->sub_category_id ? 'selected' : ''}}>{{$subCategory->title}}</option>
-                                @endforeach
-                            @endforeach
+                    <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Category Name</label>
+                        <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                          <option value="{{ $product->category->id }}">{{ $product->category->title }}</option>
                         </select>
+                      </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label for="manufacturername">Brand</label>
-                        <select name="brand_id" class="form-control select2-custom">
-                            <option selected disabled>Select Brand</option>
-                            @foreach($brands as $brand)
-                                <option value="{{$brand->id}}" {{$brand->id == $product->brand_id ? 'selected' : ''}}>{{$brand->title}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+
+
                 <div class="col-sm-6">
                     <div class="mb-3">
                         <label for="code">Product Code</label>
@@ -251,4 +229,41 @@
             reader.readAsDataURL(file);
         }
     });
+</script>
+
+
+<script>
+  document.getElementById('brand').addEventListener('change', function() {
+    var brandId = this.value;
+    if (brandId != 0) {
+      // Make an AJAX request to fetch categories for the selected brand
+      fetch('/home/categories/' + brandId)
+        .then(response => {
+          console.log("Fetch response: ", response); // Debugging: Log the response
+
+          if (!response.ok) {
+            throw new Error("Network response was not ok"); // Handle any response errors
+          }
+
+          return response.json();
+        })
+        .then(data => {
+          console.log("Categories fetched: ", data); // Debugging: Log the fetched categories
+          var categorySelect = document.getElementById('category');
+          categorySelect.innerHTML = '<option value="0">Please Select a Category</option>';
+
+          // Add the fetched categories to the dropdown
+          data.forEach(function(category) {
+            var option = document.createElement('option');
+            option.value = category.id;
+            option.text = category.title;
+            categorySelect.appendChild(option);
+          });
+        })
+        .catch(error => console.error('Error fetching categories:', error)); // Catch and log any errors
+    } else {
+      // Clear the category dropdown if no brand is selected
+      document.getElementById('category').innerHTML = '<option value="0">Please Select a Category</option>';
+    }
+  });
 </script>

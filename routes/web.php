@@ -67,7 +67,9 @@ Route::post('/cart/increment/{id}', 'CartController@increment')->name('cart.incr
 Route::post('/cart/decrement/{id}', 'CartController@decrement')->name('cart.decrement');
 Route::post('ck-editor/imgupload', [RatingReviewController::class,'imgupload'])->name('ckeditor.upload');
 
-Route::get('/products', [App\Http\Controllers\PageController::class, 'products'])->name('products');
+Route::get('/products/{id}', [App\Http\Controllers\PageController::class, 'products'])->name('products');
+Route::get('/events/{id}', [App\Http\Controllers\PageController::class, 'events'])->name('events');
+Route::get('/musics/{id}', [App\Http\Controllers\PageController::class, 'musics'])->name('musics');
 Route::get('/offer-products', [App\Http\Controllers\PageController::class, 'offer_products'])->name('offer.products');
 Route::get('/product/{id}/{slug}', [App\Http\Controllers\PageController::class, 'single_product'])->name('single.product');
 Route::get('/color/product/{id}', [App\Http\Controllers\PageController::class, 'color_product'])->name('color.product');

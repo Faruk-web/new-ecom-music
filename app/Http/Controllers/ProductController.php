@@ -16,6 +16,8 @@ use App\Models\Variation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\MusicModel;
+
 use Auth;
 use Image;
 use File;
@@ -629,7 +631,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         if (Auth::user()->type == 1) {
-            $product = Product::find($id);
+            $product = Product::with('brand','category')->find($id);
             if (!is_null($product)) {
                 $categories = Category::where('parent_id', 0)->orderBy('id', 'DESC')->get();
                 $sub_categories = optional($product->category)->child;
@@ -640,7 +642,7 @@ class ProductController extends Controller
                 $selectedColors =  explode(',', $product->color_id);
                 $selectedSizes =  explode(',', $product->size_id);
                 $countries = Country::all();
-                return view('admin.product.edit', compact('product','categories','selectedColors','selectedSizes', 'sub_categories', 'brands', 'colors', 'sizes', 'offers', 'countries'));
+                return view('admin.product.edit', compact('product','categories','selectedColors','selectedSizes', 'sub_categories', 'colors', 'sizes', 'offers', 'countries'));
             }
             else{
                 Alert::toast('Page Not Found !', 'error');

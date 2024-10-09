@@ -23,12 +23,13 @@
       </section>
       <!-- .home-3-slideshow-->
 
-      <section class="home-4-what-hots mv-wrap" style="background:#1c0202;">
+      <section class="home-4-what-hots mv-wrap" >
+      <div class="container-fluid" style="background:#1c0202;">
         <div class="what-hots-title">
           <div class="container-fluid">
-            <div class="mv-title-style-4 title-main-inside text-center">
-              <div class="title-4-text"><span class="behind">New Brands</span><span class="main"></span></div>
-            </div>
+          <div class="new-trending-item-title mv-title-style-2 title-home-3">
+            <div class="title-2-inner" style="margin-top: 70px;"><img src="{{ asset('/') }}music_source/images/icon/icon_m_3.png" alt="icon" class="icon image-live-view"/><span class="main">featured products</span><span class="sub">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</span></div>
+          </div>
           </div>
 
           <div class="slider-control-wrapper">
@@ -85,11 +86,11 @@
                       <div class="content-hover">
                         <div class="content-button mv-btn-group text-center">
                           <div class="group-inner">
-                          <a class="mv-btn mv-btn-style-1 "><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Shops</span></span></a>
-                            <a  class="mv-btn mv-btn-style-1  "><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Musics</span></span></a>
-                            <a  class="mv-btn mv-btn-style-1 "><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Events</span></span></a>
+                          <a class="mv-btn mv-btn-style-1" href="{{route('products', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Shops</span></span></a>
+                            <a  class="mv-btn mv-btn-style-1" href="{{route('musics', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Musics</span></span></a>
+                            <a  class="mv-btn mv-btn-style-1" href="{{route('events', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Events</span></span></a>
                             <a class="mv-btn mv-btn-style-1"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Profile</span></span></a>
-                           
+                            musics
                           </div>
                         </div>
                       </div>
@@ -103,9 +104,10 @@
           </div>
         </div>
         <!-- .what-hots-main-->
+        </div>
       </section>
 
-
+      
       <!-- .home-3-logo-brand-->
       <section class="home-3-new-trending-item mv-wrap" style="background:#1c0202;">
         <div class="container-fluid">
