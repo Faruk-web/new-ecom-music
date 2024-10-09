@@ -417,6 +417,7 @@ SLIDER
   min-height: 212px;
   float: right;
   width: 77.5%;
+  margin-bottom: 30px;
 }
 @media screen and (max-width: 767px) {
   .mv-tab-style-2 .tab-content {

@@ -69,7 +69,14 @@ Route::post('ck-editor/imgupload', [RatingReviewController::class,'imgupload'])-
 
 Route::get('/products/{id}', [App\Http\Controllers\PageController::class, 'products'])->name('products');
 Route::get('/events/{id}', [App\Http\Controllers\PageController::class, 'events'])->name('events');
+Route::get('/all/events', [App\Http\Controllers\PageController::class, 'allevents'])->name('all.events');
+Route::get('/all/fan/club', [App\Http\Controllers\PageController::class, 'allfanclub'])->name('all.fanclub');
+Route::get('/all/brand', [App\Http\Controllers\PageController::class, 'allbrand'])->name('all.brand');
+Route::get('/apparels', [App\Http\Controllers\PageController::class, 'apparel'])->name('apparels');
 Route::get('/musics/{id}', [App\Http\Controllers\PageController::class, 'musics'])->name('musics');
+Route::get('/all/musics', [App\Http\Controllers\PageController::class, 'allmusics'])->name('all.musics');
+Route::get('/brand/profile/{id}', [App\Http\Controllers\PageController::class, 'brandprofile'])->name('brand.profile');
+
 Route::get('/offer-products', [App\Http\Controllers\PageController::class, 'offer_products'])->name('offer.products');
 Route::get('/product/{id}/{slug}', [App\Http\Controllers\PageController::class, 'single_product'])->name('single.product');
 Route::get('/color/product/{id}', [App\Http\Controllers\PageController::class, 'color_product'])->name('color.product');

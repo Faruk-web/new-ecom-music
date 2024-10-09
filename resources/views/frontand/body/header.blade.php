@@ -94,7 +94,7 @@
                     </li>
                     <li><a href="#"><span class="menu-text">Brands <i class="menu-icon fa fa-angle-down"></i></span></a>
                       <ul>
-                        <li><a href="product-list.html">All Brands</a></li>
+                        <li><a href="{{route('all.brand')}}">All Brands</a></li>
                         <li><a href="product-grid-2.html">R&B</a></li>
                         <li><a href="product-grid-3.html">ZAJJ</a></li>
                         <li><a href="product-grid-3-no-sb.html">ROCK</a></li>
@@ -103,17 +103,17 @@
                     </li>
                     <li><a href="#"><span class="menu-text">Shop <i class="menu-icon fa fa-angle-down"></i></span></a>
                       <ul>
-                        <li><a href="cart.html">Apparels</a></li>
+                        <li><a href="{{route('apparels')}}">Apparels</a></li>
                         <li><a href="checkout.html">Accessories</a></li>
                         <li><a href="wishlist.html">limited edition</a></li>
                       </ul>
                     </li>
-                    <li><a href="#"><span class="menu-text">Events <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    <li><a href="{{route('all.events')}}"><span class="menu-text">Events <i class="menu-icon fa fa-angle-down"></i></span></a>
                     </li>
-                    <li><a href="#"><span class="menu-text">Fan Club <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    <li><a href="{{route('all.fanclub')}}"><span class="menu-text">Fan Club <i class="menu-icon fa fa-angle-down"></i></span></a>
                     </li>
-                    <li><a href="about-us.html"><span class="menu-text">About Us</span></a></li>
-                    <li><a href="contact.html"><span class="menu-text">Contact</span></a></li>
+                    <li><a href="{{route('about')}}"><span class="menu-text">About Us</span></a></li>
+                    <li><a href="{{route('contact')}}"><span class="menu-text">Contact</span></a></li>
                   </ul>
                 </nav>
               </div>
@@ -133,6 +133,7 @@
 
                   <div class="item-button dropdown mv-dropdown-style-1 script-dropdown-1">
                     <button type="button" class="mv-btn mv-btn-style-11 btn-dropdown btn-my-cart"><span class="btn-inner"><span class="icon fa fa-shopping-bag"></span><span class="number" id="total_count">{{ Session::has('cart') ? array_sum(array_column(Session::get('cart'), 'quantity')) : 0 }}</span></span></button>
+                    <a type="button" href="{{route('all.musics')}}" class="mv-btn mv-btn-style-11 btn-dropdown btn-my-cart"><span class="btn-inner"><span class="fa fa-music"></span></span></a>
                     <div class="dropdown-menu pull-right">
                       <div class="dropdown-menu-inner">
                         <div class="mv-block-style-39">

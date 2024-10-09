@@ -86,11 +86,11 @@
                       <div class="content-hover">
                         <div class="content-button mv-btn-group text-center">
                           <div class="group-inner">
-                          <a class="mv-btn mv-btn-style-1" href="{{route('products', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Shops</span></span></a>
-                            <a  class="mv-btn mv-btn-style-1" href="{{route('musics', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Musics</span></span></a>
-                            <a  class="mv-btn mv-btn-style-1" href="{{route('events', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Events</span></span></a>
-                            <a class="mv-btn mv-btn-style-1"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Profile</span></span></a>
-                            musics
+                          <a class="mv-btn mv-btn-style-1" style="width: 278px;" href="{{route('products', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Shops</span></span></a>
+                            <a  class="mv-btn mv-btn-style-1" style="width: 278px;" style="width: 278px;" href="{{route('musics', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Musics</span></span></a>
+                            <a  class="mv-btn mv-btn-style-1" style="width: 278px;" href="{{route('events', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Events</span></span></a>
+                            <a class="mv-btn mv-btn-style-1" style="width: 278px;" href="{{route('brand.profile', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Profile</span></span></a>
+                            
                           </div>
                         </div>
                       </div>

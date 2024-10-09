@@ -89,6 +89,32 @@ class PageController extends Controller
         $events = Event::where('parent_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
         return view('theam.events', compact('events'));
     }
+    public function allevents()
+    {
+        $events = Event::orderBy('id', 'DESC')->paginate(30);
+        return view('theam.all_event', compact('events'));
+    }
+    public function allfanclub()
+    {
+        $events = Event::orderBy('id', 'DESC')->paginate(30);
+        return view('theam.all_fan_club', compact('events'));
+    }
+    public function allbrand()
+    {
+        $brands = Brand::orderBy('id', 'DESC')->paginate(30);
+        return view('theam.all_brand', compact('brands'));
+    }
+    public function apparel()
+    {
+        $products = Product::orderBy('id', 'DESC')->paginate(12);
+        return view('theam.apparel', compact('products'));
+    }
+    public function allmusics()
+    {
+        $allmusic = MusicModel::orderBy('id', 'DESC')->paginate(12);
+        return view('theam.all_music', compact('allmusic'));
+    }
+    
     public function musics($id)
     {
         $brand = Brand::find($id);
@@ -96,6 +122,14 @@ class PageController extends Controller
         $category = Category::with('music')->where('parent_id', $brand->id)->orderBy('id', 'DESC')->get();
         return view('theam.musics', compact('musics','category'));
     }
+    public function brandprofile($id)
+    {
+        $brand = Brand::find($id);
+        $products = Product::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
+        $category = Category::with('music')->where('parent_id', $brand->id)->orderBy('id', 'DESC')->get();
+        return view('theam.brand_profile', compact('products','category'));
+    }
+    
     public function offer_products()
     {
         $products = Product::where('is_active', 1)->where('is_sale', 1)->orderBy('id', 'DESC')->get();
@@ -327,7 +361,7 @@ class PageController extends Controller
     {
         $page = Page::find(4);
         $galleries = Gallery::orderBy('id', 'DESC')->get();
-        return view('pages.about', compact('page', 'galleries'));
+        return view('theam.about', compact('page', 'galleries'));
     }
 
     public function privacy_policy()
@@ -344,7 +378,7 @@ class PageController extends Controller
 
     public function contact()
     {
-        return view('pages.contact');
+        return view('theam.contact');
     }
 
     public function send_message(Request $request)
