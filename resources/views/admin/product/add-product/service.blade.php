@@ -118,39 +118,6 @@
                 </div>
             </div>
         </div>
-            <div class="card mt-5">
-                <div class="card-body">
-                    <div class="row">
-                        @php
-                            $cross_border = \App\Models\Product::where('submission', 1)->where('cross_border', 1)->first();
-                        @endphp
-                        @if($cross_border == true)
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label>Which Country Delivered</label>
-                                    <select name="country_id" id="" class="form-control">
-                                        <option value="">Select Country</option>
-                                        @foreach($countries as $country)
-                                            <option value="{{$country->id}}" {{$country->id == $product->country_id ? 'selected' : ''}}>{{$country->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        @endif
-                        @php
-                            $pre_order = \App\Models\Product::where('submission', 1)->where('pre_order', 1)->first();
-                        @endphp
-                        @if($pre_order == true)
-                            <div class="col-sm-6" id="preOrder">
-                                <div class="mb-3">
-                                    <label for="datetime">Maximum Delivery Date</label>
-                                    <input type="text" value="{{$product->maximum_delivery_date}}" class="form-control" name="maximum_delivery_date" placeholder="Maximum Delivery Date">
-                                </div>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
         <div class="row">
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary float-right">Save and Publish</button>

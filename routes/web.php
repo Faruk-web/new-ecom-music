@@ -73,8 +73,12 @@ Route::get('/all/events', [App\Http\Controllers\PageController::class, 'allevent
 Route::get('/all/fan/club', [App\Http\Controllers\PageController::class, 'allfanclub'])->name('all.fanclub');
 Route::get('/all/brand', [App\Http\Controllers\PageController::class, 'allbrand'])->name('all.brand');
 Route::get('/apparels', [App\Http\Controllers\PageController::class, 'apparel'])->name('apparels');
+Route::get('/accessories', [App\Http\Controllers\PageController::class, 'accessories'])->name('accessories');
+Route::get('/limited_edition', [App\Http\Controllers\PageController::class, 'limited_edition'])->name('limited_edition');
 Route::get('/musics/{id}', [App\Http\Controllers\PageController::class, 'musics'])->name('musics');
 Route::get('/all/musics', [App\Http\Controllers\PageController::class, 'allmusics'])->name('all.musics');
+Route::get('/album', [App\Http\Controllers\PageController::class, 'album'])->name('album');
+Route::get('/album/single/{id}', [App\Http\Controllers\PageController::class, 'singlealbum'])->name('single.album');
 Route::get('/brand/profile/{id}', [App\Http\Controllers\PageController::class, 'brandprofile'])->name('brand.profile');
 
 Route::get('/offer-products', [App\Http\Controllers\PageController::class, 'offer_products'])->name('offer.products');

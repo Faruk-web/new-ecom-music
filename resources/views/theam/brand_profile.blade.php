@@ -1,5 +1,18 @@
 @extends('frontand.master')
 @section('content')
+<style>
+  .mv-block-style-34 .block-34-title .text-sub{
+       /* position: relative; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 0px;
+    color: #222;
+    z-index: 10;
+    margin: -52px -138px;
+    text-align: justify;
+  }
+</style>
 <section class="main-banner mv-wrap">
         <div data-image-src="{{ asset('/') }}music_source/theme/1.jpg" class="mv-banner-style-1 mv-bg-overlay-dark overlay-0-85 mv-parallax">
           <div class="page-name mv-caption-style-6">
@@ -23,10 +36,34 @@
         </div>
       </section>
       <!-- .main-breadcrumb-->
-      <section class="home-3-new-trending-item mv-wrap" style="background:#1c0202;">
-        <div class="container-fluid">
+      <section class="mv-main-body about-us-main mv-bg-gray mv-wrap" style="padding: 0px 0;">
+        <div class="about-us-inner">
+          <div class="block-our-story">
+            <div class="container">
+              <div class="mv-block-style-34 mv-bg-white mv-box-shadow-gray-1">
+                <div class="block-34-inner">
+                  <div class="block-34-title">
+                    <div class="text-main">our story</div>
+                    <div class="text-sub">{{$brand->description}}</div>
+                  </div>
+                  <div  class="block-34-box">
+                    <div class="block-34-box-inner">
+                      <div class="mv-col-center">
+                        <div class="block-34-content">{{$brand->long_descp}} <br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- .mv-block-style-34-->
+            </div>
+          </div>
+          <!-- .block-our-story-->
+      </section>
+      <section class="home-3-new-trending-item mv-wrap" >
+        <div class="container-fluid" style="background:#1c0202;">
           <div class="new-trending-item-title mv-title-style-2 title-home-3">
-            <div class="title-2-inner"><img src="{{ asset('/') }}music_source/images/icon/icon_m_3.png" alt="icon" class="icon image-live-view"/><span class="main">featured products</span><span class="sub">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</span></div>
+            <div class="title-2-inner" style="margin-top: 35px;"><img src="{{ asset('/') }}music_source/images/icon/icon_m_3.png" alt="icon" class="icon image-live-view"/><span class="main">featured products</span><span class="sub">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</span></div>
           </div>
           <!-- .new-trending-item-title-->
 
@@ -102,7 +139,7 @@
         <div class="container-fluid">
           <div class="container">
             <div class="featured-title mv-title-style-2 title-home-3">
-              <div class="title-2-inner">
+              <div class="title-2-inner" style="margin-top: 35px;">
                 <img src="{{ asset('/') }}music_source/images/icon/icon_m_3.png" alt="icon" class="icon image-live-view"/>
                 <span class="main">Featured Music</span>
               </div>
@@ -190,18 +227,34 @@
                     @foreach ($cat->music as $music)
                     <div class="row">
                       <!-- Display all music items -->
-                      <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="col-xs-4 col-sm-4 col-md-4" style="margin-top: 12px;">
                         <div class="music-item">
                         <audio controls width="480" height="240">
                                       <source src="{{ asset($music->audio) }}" type="audio/mpeg">
                                       Your browser does not support the audio tag.
                                     </audio>
-                          <span class="price">${{ number_format($music->price, 2) }}</span>
                         </div>
+                      </div>
+                      <div class="col-xs-2 col-sm-2 col-md-2">
+                      <span class="price">
+                          <!-- .popup-wrapper-->
+                            <div class="bars bars2">
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                              <div class="bar"></div>
+                            </div>
+                        </span>
                       </div>
                       <div class="col-xs-6 col-sm-6 col-md-6">
                       <div class="title-2-inner">
-                        <img style="height: 75px;" src="{{ asset('images/music/'.$product->image ) }}" alt="icon" class="icon image-live-view"/>
+                        <img style="height: 75px;" src="{{ asset('images/music/'.$music->image ) }}" alt="icon" class="icon image-live-view"/>
                         <span class="main" style=" font-size: 22px; color: #40d1af;">{{$music->audio_name}}</span>
                       </div>
                       </div>
@@ -217,7 +270,7 @@
                 
                   @foreach ($cat->music as $music)
                   <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-4" style="margin-top: 12px;">
                       <div class="music-item">
                       <audio controls>
                         <source src="{{ asset($music->audio) }}" type="audio/mpeg">
@@ -244,7 +297,7 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="title-2-inner">
-                      <img style="height: 75px;" src="{{ asset('images/music/'.$product->image ) }}" alt="icon" class="icon image-live-view"/>
+                      <img style="height: 75px;" src="{{ asset('images/music/'.$music->image ) }}" alt="icon" class="icon image-live-view"/>
                       <span class="main" style=" font-size: 22px; color: #40d1af;">{{$music->audio_name}}</span>
                     </div>
                     </div>

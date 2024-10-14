@@ -1,5 +1,5 @@
       <footer class="footer mv-footer-style-3 mv-wrap">
-        <div style="background-image: url({{ asset('/') }}music_source/images/background/demo_bg_1920x1200.png)" class="footer-bg">
+        <div style="background-image: url({{ asset('/') }}music_source/images/background/bg.png)" class="footer-bg">
           <div class="container-fluid">
             <div class="footer-inner">
               <div id="footerNav" role="tablist" aria-multiselectable="true" class="footer-nav panel-group">
@@ -84,10 +84,10 @@
                   <div class="col-sm-4 col-md-3 col-payment">
                     <div class="footer-payment">
                       <ul class="mv-ul list">
-                        <li class="item"><a href="#"><img src="images/icon/icon_paypal.png" alt="icon"/></a></li>
-                        <li class="item"><a href="#"><img src="images/icon/icon_master_card.png" alt="icon"/></a></li>
-                        <li class="item"><a href="#"><img src="images/icon/icon_american_express.png" alt="icon"/></a></li>
-                        <li class="item"><a href="#"><img src="images/icon/icon_visa.png" alt="icon"/></a></li>
+                        <li class="item"><a href="#"><img src="{{ asset('/') }}music_source/images/icon/icon_paypal.png" alt="icon"/></a></li>
+                        <li class="item"><a href="#"><img src="{{ asset('/') }}music_source/images/icon/icon_master_card.png" alt="icon"/></a></li>
+                        <li class="item"><a href="#"><img src="{{ asset('/') }}music_source/images/icon/icon_american_express.png" alt="icon"/></a></li>
+                        <li class="item"><a href="#"><img src="{{ asset('/') }}music_source/images/icon/icon_visa.png" alt="icon"/></a></li>
                       </ul>
                     </div>
                     <!-- .footer-payment-->

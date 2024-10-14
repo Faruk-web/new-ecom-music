@@ -48,7 +48,7 @@
                         </td>
 
                         <td>
-                            <video width="320" height="240" controls>
+                            <video width="170" height="100" controls>
                                 <source src="{{asset($brand->video)}}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video></td>
@@ -70,7 +70,7 @@
 
                     <!-- Edit brand Modal -->
             <div class="modal fade" id="editModal{{ $brand->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">
@@ -129,11 +129,33 @@
                               </div>
                             </div>
                               <div class="form-group col-md-9">
-                              <div class="form-check form-check-inline ">
+                               <div class="form-check form-check-inline ">
                                   <input class="form-check-input group1" id="is_active" type="checkbox" checked name="is_active" value="2" @if($brand->is_active == 2) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success" style="height: 50px; width: 30px" >
                                    <label class="form-check-label" for="is_active">Only Brand</label>
-                              </div>
+                                </div>
+                               </div>
+                               <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Short Description </label>
+                                    <textarea name="description" class="form-control @error('short_descp') is-invalid @enderror" placeholder="Description">{!! $brand->description !!}</textarea>
+                                    @error('long_descp')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Description *</label>
+                                    <textarea id="description" name="long_descp" class="form-control @error('description') is-invalid @enderror" placeholder="Description">{!! $brand->long_descp !!}</textarea>
+                                    @error('long_descp')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                              </div>
                                 <div class="form-group">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                   <button class="btn btn-primary">Save Changes</button>
@@ -190,7 +212,7 @@
 
             <!-- Add Modal -->
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
+              <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create Brand</h5>
@@ -255,6 +277,28 @@
                             </div>
                       </div>
                   </div>
+                  <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Short Description </label>
+                            <textarea  name="description" class="form-control @error('short_descp') is-invalid @enderror" placeholder="Description"></textarea>
+                            @error('long_descp')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Description *</label>
+                            <textarea id="long_descp" name="long_descp" class="form-control @error('long_descp') is-invalid @enderror" placeholder="Description"></textarea>
+                            @error('long_descp')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button class="btn btn-primary" type="submit">Save</button>
@@ -284,5 +328,70 @@
       "responsive": true,
     });
   });
+</script>
+<script src="https://cdn.ckeditor.com/4.12.1/full/ckeditor.js"></script>
+<script type="text/javascript">
+    CKEDITOR.replace('long_descp', {
+        filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token() ]) }}",
+        filebrowserUploadMethod: 'form',
+        extraPlugins: 'font,colorbutton',
+        toolbar: [
+            { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'] },
+            { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+            { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'] },
+            { name: 'forms', items: ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'] },
+            '/',
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language'] },
+            { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+            { name: 'insert', items: ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'] },
+            '/',
+            { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+            { name: 'colors', items: ['TextColor', 'BGColor'] },
+            { name: 'tools', items: ['Maximize', 'ShowBlocks'] }
+        ],
+        font_names: 'Arial/Arial, Helvetica, sans-serif;' +
+                    'Comic Sans MS/Comic Sans MS, cursive;' +
+                    'Courier New/Courier New, Courier, monospace;' +
+                    'Georgia/Georgia, serif;' +
+                    'Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;' +
+                    'Tahoma/Tahoma, Geneva, sans-serif;' +
+                    'Times New Roman/Times New Roman, Times, serif;' +
+                    'Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;' +
+                    'Verdana/Verdana, Geneva, sans-serif;' +
+                    'Custom Font/Custom Font, sans-serif;',
+        fontSize_sizes: '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px'
+    });
+    CKEDITOR.replace('description', {
+        filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token() ]) }}",
+        filebrowserUploadMethod: 'form',
+        extraPlugins: 'font,colorbutton',
+        toolbar: [
+            { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'] },
+            { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+            { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'] },
+            { name: 'forms', items: ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'] },
+            '/',
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language'] },
+            { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+            { name: 'insert', items: ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'] },
+            '/',
+            { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+            { name: 'colors', items: ['TextColor', 'BGColor'] },
+            { name: 'tools', items: ['Maximize', 'ShowBlocks'] }
+        ],
+        font_names: 'Arial/Arial, Helvetica, sans-serif;' +
+                    'Comic Sans MS/Comic Sans MS, cursive;' +
+                    'Courier New/Courier New, Courier, monospace;' +
+                    'Georgia/Georgia, serif;' +
+                    'Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;' +
+                    'Tahoma/Tahoma, Geneva, sans-serif;' +
+                    'Times New Roman/Times New Roman, Times, serif;' +
+                    'Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;' +
+                    'Verdana/Verdana, Geneva, sans-serif;' +
+                    'Custom Font/Custom Font, sans-serif;',
+        fontSize_sizes: '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px'
+    });
 </script>
 @endsection

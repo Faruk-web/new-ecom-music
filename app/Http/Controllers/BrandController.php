@@ -76,6 +76,8 @@ public function store(Request $request)
     $brand = new Brand;
     $brand->title = $request->title;
     $brand->is_active = $request->is_active;
+    $brand->description = $request->description;
+    $brand->long_descp = $request->long_descp;
     // Handle video upload
     if ($request->hasFile('video')) {
         $brand->video = $this->getFileUrl($request, 'video');
@@ -142,6 +144,8 @@ public function store(Request $request)
 
         $brand->title = $request->title;
         $brand->is_active = $request->is_active;
+        $brand->description = $request->description;
+        $brand->long_descp = $request->long_descp;
         // Handle video upload
         if ($request->hasFile('video')) {
             $brand->video = $this->getFileUrl($request, 'video');

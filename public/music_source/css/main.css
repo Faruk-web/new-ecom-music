@@ -7850,7 +7850,7 @@ select option.option-please-select {
   overflow: hidden;
   width: 100%;
   height: 450px;
-  background: #f6f6f6;
+  background: #180202e6;
 }
 @media screen and (max-width: 1199px) {
   .mv-block-style-2 .block-2-list > .item > .item-inner {
@@ -8043,7 +8043,7 @@ select option.option-please-select {
 }
 .mv-block-style-2 .content-desc,
 .mv-block-style-2 .content-desc a {
-  color: #7b7c7c;
+  color: #00fff3;
 }
 @media screen and (min-width: 992px) {
   .mv-block-style-2 .content-desc a:hover {
@@ -16247,12 +16247,12 @@ select option.option-please-select {
 }
 @media screen and (min-width: 1200px) {
   .mv-content-sidebar .mv-c-s-content {
-    width: 74.3%;
+    width: 68.3%;
   }
 }
 @media screen and (min-width: 1200px) {
   .mv-content-sidebar .mv-c-s-sidebar {
-    width: 25.7%;
+    width: 31.7%;
   }
 }
 .mv-content-sidebar .mv-c-s-sidebar-inner {

@@ -110,15 +110,7 @@
                         @enderror
                       </div>
                     </div>
-                <!-- <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Sub Category</label>
-                        <select id="sub_category" name="sub_category_id" class=" form-control @error('sub_category_id') is-invalid @enderror">
-                            <option value="">Please Select a Sub Category</option>
-                        </select>
-                    </div>
-                </div> -->
-                
+
                 <div class="col-sm-6">
                     <div class="mb-3">
                         <label for="code">Product Code</label>
@@ -187,22 +179,12 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="row">
-                            <div class="col-sm-3">
+                        <div class="col-sm-3">
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline ">
-                                            <input class="form-check-input group1" id="retail" type="checkbox" name="retail" value="1" value="1" style="height: 30px; width: 20px" {{$product->retail == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="retail">Retail</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="row">
-                                    <div class="form-group col-md-9">
-                                        <div  class="form-check form-check-inline my-checkbox">
-                                            <input class="form-check-input group1" id="wholesale" type="checkbox" name="wholesale" value="1" value="1" style="height: 30px; width: 20px" {{$product->wholesale == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="wholesale">Wholesale</label>
+                                            <input class="form-check-input group1" id="retail" type="checkbox" checked name="qpparels" value="1" value="1" style="height: 30px; width: 20px" >
+                                            <label class="form-check-label" for="retail">Apparels</label>
                                         </div>
                                     </div>
                                 </div>
@@ -211,8 +193,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline my-checkbox">
-                                            <input class="form-check-input group1" id="noCrossCheck" type="checkbox" name="cross_border" value="1" value="1" style="height: 30px; width: 20px" {{$product->cross_border == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="noCrossCheck">Cross Border</label>
+                                            <input class="form-check-input group1" id="noCrossCheck" type="checkbox" name="accessories" value="1" value="1" style="height: 30px; width: 20px" >
+                                            <label class="form-check-label" for="noCrossCheck">Accessories</label>
                                         </div>
                                     </div>
                                 </div>
@@ -221,8 +203,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-9">
                                         <div class="form-check form-check-inline my-checkbox">
-                                            <input class="form-check-input group1" id="preOrderCheck" type="checkbox" name="pre_order" value="1" value="1" style="height: 30px; width: 20px" {{$product->pre_order == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="preOrderCheck">Pre-order</label>
+                                            <input class="form-check-input group1" id="preOrderCheck" type="checkbox" name="limited_edition" value="1" value="1" style="height: 30px; width: 20px" >
+                                            <label class="form-check-label" for="preOrderCheck">Limited Edition</label>
                                         </div>
                                     </div>
                                 </div>
@@ -232,7 +214,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="mb-3">
                         <label for="productname">Product Name</label>
                         <input id="productname" name="title" value="{{$product->title}}" type="text" class="form-control" placeholder="Product Name" @error('title') is-invalid @enderror  />
@@ -243,46 +225,22 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Select Category</label>
-                        <select class="form-control" name="category_id" id="category_id" @error('category_id') is-invalid @enderror>
-                            <option selected disabled>Select Category</option>
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected' : ''}}>{{$category->title}}</option>
-                            @endforeach
+                <div class="col-md-4">
+                       <div class="form-group">
+                        <label>Brand Name</label>
+                        <select name="brand_id" id="brand_id" class="form-control @error('brand_id') is-invalid @enderror">
+                          <option value="{{ $product->brand->id }}">{{ $product->brand->title }}</option>
                         </select>
-                        @error('category_id')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                      </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Sub Category</label>
-                        <select id="sub_category" name="sub_category_id" class=" form-control @error('sub_category_id') is-invalid @enderror">
-                            <option value="">Please Select a Sub Category</option>
-                            @foreach($categories as $category)
-                                @foreach($category->child as $subCategory)
-                                <option value="{{$subCategory->id}}" {{$subCategory->id == $product->sub_category_id ? 'selected' : ''}}>{{$subCategory->title}}</option>
-                                @endforeach
-                            @endforeach
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Category Name</label>
+                        <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                          <option value="{{ $product->category->id }}">{{ $product->category->title }}</option>
                         </select>
+                      </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label for="manufacturername">Brand</label>
-                        <select name="brand_id" class="form-control select2-custom">
-                            <option selected disabled>Select Brand</option>
-                            @foreach($brands as $brand)
-                                <option value="{{$brand->id}}" {{$brand->id == $product->brand_id ? 'selected' : ''}}>{{$brand->title}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
                 <div class="col-sm-6">
                     <div class="mb-3">
                         <label for="code">Product Code</label>

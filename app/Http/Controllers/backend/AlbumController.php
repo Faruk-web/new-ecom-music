@@ -72,7 +72,8 @@ class AlbumController extends Controller
     $album->brand_id = $request->brand_id;
     $album->category_id = $request->category_id;
     $album->title = $request->title;  // This must be a string
-    $album->description = $request->description;
+    $album->short_descp = $request->short_descp;
+    $album->long_descp = $request->long_descp;
     // Handle image (thumbnail) and banner upload
     if ($request->hasFile('image')) {
         $image = $request->file('image');
@@ -206,7 +207,8 @@ class AlbumController extends Controller
         $album->brand_id = $request->brand_id;
         $album->category_id = $request->category_id;
         $album->title = $request->title;
-    
+        $album->short_descp = $request->short_descp;
+        $album->long_descp = $request->long_descp;
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if it exists

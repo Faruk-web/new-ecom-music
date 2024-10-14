@@ -44,7 +44,6 @@
                   </ul>
                 </div>
                 <!-- .header-contact-->
-
                 <div class="mv-col-right align-bottom header-account">
                   <div class="mv-btn-group text-right">
                     <div class="group-inner">
@@ -75,7 +74,6 @@
           </div>
         </div>
         <!-- .header-top-->
-
         <div class="header-main-nav mv-fixed-enabled">
           <div class="container">
             <div class="container-inner">
@@ -83,16 +81,21 @@
                 <button type="button" class="mv-btn mv-btn-style-5 btn-off-canvas-toggle click-btn-off-canvas-left"><i class="icon fa fa-bars"></i></button>
               </div>
               <!-- .header-toggle-off-canvas-->
-
               <div class="header-logo"><a href="{{route('index')}}" title="Motor Vehikal"><img src="{{ asset('/') }}music_source/images/logo/logo_3.png" alt="logo" class="logo-img img-default image-live-view"/><img src="{{ asset('/') }}music_source/images/logo/logo_4.png" alt="logo" class="logo-img img-scroll image-live-view"/></a></div>
               <!-- .header-logo-->
-
               <div class="main-nav-wrapper hidden-xs hidden-sm">
                 <nav class="main-nav">
                   <ul class="nav sf-menu">
                     <li class="mega-columns"><a href="{{route('index')}}"><span class="menu-text">Home <i class="menu-icon fa fa-angle-down"></i></span></a>
                     </li>
-                    <li><a href="#"><span class="menu-text">Brands <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    <li><a href="#"><span class="menu-text">Shop <i class="menu-icon fa fa-angle-down"></i></span></a>
+                      <ul>
+                        <li><a href="{{route('apparels')}}">Apparels</a></li>
+                        <li><a href="{{route('accessories')}}">Accessories</a></li>
+                        <li><a href="{{route('limited_edition')}}">Limited Edition</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><span class="menu-text">Bands <i class="menu-icon fa fa-angle-down"></i></span></a>
                       <ul>
                         <li><a href="{{route('all.brand')}}">All Brands</a></li>
                         <li><a href="product-grid-2.html">R&B</a></li>
@@ -101,15 +104,12 @@
                         <li><a href="product-grid-4-no-sb.html">RAP</a></li>
                       </ul>
                     </li>
-                    <li><a href="#"><span class="menu-text">Shop <i class="menu-icon fa fa-angle-down"></i></span></a>
-                      <ul>
-                        <li><a href="{{route('apparels')}}">Apparels</a></li>
-                        <li><a href="checkout.html">Accessories</a></li>
-                        <li><a href="wishlist.html">limited edition</a></li>
-                      </ul>
+                    <li><a href="{{route('all.musics')}}"><span class="menu-text">Music <i class="menu-icon fa fa-angle-down"></i></span></a>
                     </li>
                     <li><a href="{{route('all.events')}}"><span class="menu-text">Events <i class="menu-icon fa fa-angle-down"></i></span></a>
                     </li>
+                    <!-- <li><a href="{{route('album')}}"><span class="menu-text">Album <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    </li> -->
                     <li><a href="{{route('all.fanclub')}}"><span class="menu-text">Fan Club <i class="menu-icon fa fa-angle-down"></i></span></a>
                     </li>
                     <li><a href="{{route('about')}}"><span class="menu-text">About Us</span></a></li>
@@ -118,7 +118,6 @@
                 </nav>
               </div>
               <!-- .header-main-nav-->
-
               <div class="header-right-button">
                 <div class="header-search">
                   <div class="item-button">
@@ -133,7 +132,7 @@
 
                   <div class="item-button dropdown mv-dropdown-style-1 script-dropdown-1">
                     <button type="button" class="mv-btn mv-btn-style-11 btn-dropdown btn-my-cart"><span class="btn-inner"><span class="icon fa fa-shopping-bag"></span><span class="number" id="total_count">{{ Session::has('cart') ? array_sum(array_column(Session::get('cart'), 'quantity')) : 0 }}</span></span></button>
-                    <a type="button" href="{{route('all.musics')}}" class="mv-btn mv-btn-style-11 btn-dropdown btn-my-cart"><span class="btn-inner"><span class="fa fa-music"></span></span></a>
+                    <a type="button" href="{{route('all.musics')}}" class="mv-btn mv-btn-style-11"><span class="btn-inner"><span class="fa fa-music"></span></span></a>
                     <div class="dropdown-menu pull-right">
                       <div class="dropdown-menu-inner">
                         <div class="mv-block-style-39">

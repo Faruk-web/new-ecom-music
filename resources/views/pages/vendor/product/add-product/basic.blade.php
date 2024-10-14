@@ -101,14 +101,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Sub Category</label>
-                        <select id="sub_category" name="sub_category_id" class=" form-control @error('sub_category_id') is-invalid @enderror">
-                            <option value="">Please Select a Sub Category</option>
-                        </select>
-                    </div>
-                </div>
+
                 <div class="col-sm-6">
                     <div class="mb-3">
                         <label for="manufacturername">Brand</label>
@@ -251,19 +244,6 @@
                             <option selected disabled>Select Category</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected' : ''}}>{{$category->title}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label class="control-label">Sub Category</label>
-                        <select id="sub_category" name="sub_category_id" class=" form-control @error('sub_category_id') is-invalid @enderror">
-                            <option value="">Please Select a Sub Category</option>
-                            @foreach($categories as $category)
-                                @foreach($category->child as $subCategory)
-                                <option value="{{$subCategory->id}}" {{$subCategory->id == $product->sub_category_id ? 'selected' : ''}}>{{$subCategory->title}}</option>
-                                @endforeach
                             @endforeach
                         </select>
                     </div>
