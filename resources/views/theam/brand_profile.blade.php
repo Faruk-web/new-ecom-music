@@ -36,30 +36,7 @@
         </div>
       </section>
       <!-- .main-breadcrumb-->
-      <section class="mv-main-body about-us-main mv-bg-gray mv-wrap" style="padding: 0px 0;">
-        <div class="about-us-inner">
-          <div class="block-our-story">
-            <div class="container">
-              <div class="mv-block-style-34 mv-bg-white mv-box-shadow-gray-1">
-                <div class="block-34-inner">
-                  <div class="block-34-title">
-                    <div class="text-main">our story</div>
-                    <div class="text-sub">{{$brand->description}}</div>
-                  </div>
-                  <div  class="block-34-box">
-                    <div class="block-34-box-inner">
-                      <div class="mv-col-center">
-                        <div class="block-34-content">{{$brand->long_descp}} <br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- .mv-block-style-34-->
-            </div>
-          </div>
-          <!-- .block-our-story-->
-      </section>
+    
       <section class="home-3-new-trending-item mv-wrap" >
         <div class="container-fluid" style="background:#1c0202;">
           <div class="new-trending-item-title mv-title-style-2 title-home-3">
@@ -207,7 +184,6 @@
             </div>
           </div>
           <!-- .featured-title-->
-
           <div class="mv-tab-style-2">
             <!-- Tab Navigation -->
             <ul role="tablist" class="nav nav-tabs">
@@ -217,12 +193,10 @@
               @endforeach
             </ul>
             <!-- .nav-tabs -->
-
             <!-- Tab Content -->
             <div class="tab-content">
               <!-- Tab for All Music -->
               <div id="tab-all" class="tab-pane active">
-                
                   @foreach ($category as $cat)
                     @foreach ($cat->music as $music)
                     <div class="row">
@@ -314,5 +288,82 @@
       </div>
     </section>
 
+    <section class="mv-main-body blog-3-no-sb-main mv-bg-gray mv-wrap">
+        <div class="container">
+        <div class="featured-title mv-title-style-2 title-home-3">
+            <div class="title-2-inner">
+              <img src="{{ asset('/') }}music_source/images/icon/icon_m_3.png" alt="icon" class="icon image-live-view"/>
+              <span class="main">Album</span>
+            </div>
+          </div>
+          <div class="mv-list-blog-wrapper mv-block-style-15">
+            <div class="row block-15-list mv-list-blog">
+            @foreach($album as $product)
+              <article class="col-xs-6 col-sm-4 item item-blog-grid-3-no-sb post">
+                <div class="item-inner mv-box-shadow-gray-1">
+                  <div class="item-inner-relative">
+                    <div class="block-15-thumb mv-effect-relative"><a href="{{route('single.album', $product->id)}}" title="Lamcorper suscipit lobortis nisl ut aliquip ex ea"><span style="background-image: url({{asset('images/album/'.$product->image )}});" class="block-15-thumb-img"></span></a><span class="polygon hidden-xs hidden-sm"></span><span onclick="$(this).remove()" class="block-15-date mv-date-style-1 hidden-xs hidden-sm"><span class="day">29</span><span class="month">sep</span></span></div>
+                    <!-- .block-15-thumb-->
+                    <div class="block-15-main">
+                      <div class="block-15-main-inner">
+                        <div class="block-15-title"><a href="{{route('single.album', $product->id)}}" title="Lamcorper suscipit lobortis nisl ut aliquip ex ea" class="mv-overflow-ellipsis">{{$product->title}}</a></div>
+                        <ul class="block-15-meta mv-ul">
+                          <li class="meta-item mv-icon-left-style-3"><a href="#"><span class="text"> <span class="icon"><i class="fa fa-pencil-square-o"></i></span>{{$product->created_at}}</span></a></li>
+                        </ul>
+                        <div class="block-15-content">{{$product->short_descp}}</div>
+                        <div class="block-15-read-more"><a href="{{route('single.album', $product->id)}}" class="mv-btn mv-btn-style-1 btn-1-h-40 btn-1-gray responsive-btn-1-type-5 btn-read-more"><span class="btn-inner"><i class="btn-icon fa fa-long-arrow-right"></i><span class="btn-text">read more</span></span></a></div>
+                      </div>
+                    </div>
+                    <!-- .block-15-main-->
+                  </div>
+                </div>
+              </article>
+              <!-- .post-->
+              @endforeach
+            </div>
+          </div>
+          <!-- .mv-list-blog-wrapper-->
+          <div class="mv-pagination-wrapper">
+            <div class="mv-pagination-style-1 has-count-post">
+              <div class="count-post mv-title-style-10"><span class="number">12</span> Album of <span class="number">5</span> Pages</div>
+              <ul class="pagination">
+                <li class="prev"><a href="#">prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li class="active"><a>3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li class="next"><a href="#">next</a></li>
+              </ul>
+            </div>
+            <!-- .mv-pagination-style-1-->
+          </div>
+          <!-- .mv-pagination-wrapper-->
+        </div>
+      </section>
+      <section class="mv-main-body about-us-main mv-bg-gray mv-wrap" style="padding: 0px 0;">
+        <div class="about-us-inner">
+          <div class="block-our-story">
+            <div class="container">
+              <div class="mv-block-style-34 mv-bg-white mv-box-shadow-gray-1">
+                <div class="block-34-inner">
+                  <div class="block-34-title">
+                    <div class="text-main">our story</div>
+                    <div class="text-sub">{{$brand->description}}</div>
+                  </div>
+                  <div  class="block-34-box">
+                    <div class="block-34-box-inner">
+                      <div class="mv-col-center">
+                        <div class="block-34-content">{{$brand->long_descp}} <br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- .mv-block-style-34-->
+            </div>
+          </div>
+          <!-- .block-our-story-->
+      </section>
 
 @endsection

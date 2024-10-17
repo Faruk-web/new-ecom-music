@@ -1286,40 +1286,67 @@ $(document).ready(function() {
   /* --------------------------------------------------------------------- */
   /* INPUT QUANTITY CART (SPINNER INPUT)
   /* --------------------------------------------------------------------- */
-  (function($) {
+  (function ($) {
     if (!$('.input-quantity-cart').length) return;
 
-    $('.input-quantity-cart').each(function() {
-      var inputQuantity = $(this);
-      var wraper = inputQuantity.closest('.calculate-price-wrapper');
-      var unit = wraper.find('.calculate-price-unit');
-      var output = wraper.find('.calculate-price-output');
-      var minNum = 1;
-      var maxNum = 999;
+    $('.input-quantity-cart').each(function () {
+        const inputQuantity = $(this);
+        const wrapper = inputQuantity.closest('.calculate-price-wrapper');
+        const unitPrice = parseFloat(wrapper.find('.calculate-price-unit').text().replace(/,/g, ''));
+        const output = wrapper.find('.calculate-price-output');
 
-      var outputNum = parseFloat(unit.text()) * parseFloat($(this).val());
-      output.text(outputNum.toFixed(2));
+        // Initialize total on page load
+        updateTotal(inputQuantity.val(), unitPrice, output);
 
-      var spinner = inputQuantity.spinner({
-        numberFormat: 'n',
-        min: minNum,
-        max: maxNum,
+        let debounceTimer;
 
-        change: function() {
-          $(this).val() < minNum ? $(this).val(minNum) : null;
-          $(this).val() > maxNum ? $(this).val(maxNum) : null;
+        inputQuantity.on('input change', function () {
+            let qty = parseFloat($(this).val()) || 1; // Default to 1 if invalid
+            qty = Math.max(1, Math.min(qty, 999)); // Ensure quantity is within limits
+            $(this).val(qty); // Set valid quantity back to input
 
-          var outputNum = parseFloat(unit.text()) * parseFloat($(this).val());
-          output.text(outputNum.toFixed(2));
-        },
- 
-        stop: function() {
-          var outputNum = parseFloat(unit.text()) * parseFloat($(this).val());
-          output.text(outputNum.toFixed(2));
-        }
-      });
-    });    
-  })(jQuery);
+            updateTotal(qty, unitPrice, output); // Update total immediately
+
+            // Clear previous timer to debounce AJAX request
+            clearTimeout(debounceTimer);
+
+            // Set a timeout to delay AJAX call (e.g., 500ms)
+            debounceTimer = setTimeout(() => {
+                updateCartQuantity($(this).data('id'), qty, $(this).data('url'));
+            }, 500);
+        });
+    });
+
+    // Function to calculate and display the total price
+    function updateTotal(quantity, unitPrice, output) {
+        const totalPrice = (unitPrice * quantity).toFixed(2);
+        output.text(totalPrice);
+    }
+
+    // AJAX function to update quantity on the backend
+    function updateCartQuantity(cartId, quantity, url) {
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                quantity: quantity,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                if (response.success) {
+                    console.log(response.message);
+                    alert('Cart updated successfully!');
+                } else {
+                    alert('Error: ' + response.message);
+                }
+            },
+            error: function (xhr) {
+                console.error(xhr.responseText);
+                alert('Failed to update cart. Please try again.');
+            }
+        });
+    }
+})(jQuery);
 
 
   /* --------------------------------------------------------------------- */

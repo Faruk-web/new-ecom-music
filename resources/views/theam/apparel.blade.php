@@ -1,5 +1,11 @@
 @extends('frontand.master')
 @section('content')
+@php
+    $discount = 0;
+    if(Session::has('coupon_discount')){
+        $discount = Session::get('coupon_discount');
+    }
+@endphp
 <section class="main-banner mv-wrap">
         <div data-image-src="{{ asset('/') }}music_source/theme/1.jpg" class="mv-banner-style-1 mv-bg-overlay-dark overlay-0-85 mv-parallax">
           <div class="page-name mv-caption-style-6">

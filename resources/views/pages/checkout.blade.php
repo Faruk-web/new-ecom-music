@@ -97,7 +97,7 @@
                                     </div>
                                 </div> -->
                                 <div class="form-group">
-                                    <label>House No & name <span style="color: red">*</span></label>
+                                    <label>House No & Address <span style="color: red">*</span></label>
                                     <input type="text" placeholder="House number and name" class="form-control form-control-md mb-2" name="house_no_and_name" value="{{ optional(Auth::user())->address }}" required>
                                 </div>
 

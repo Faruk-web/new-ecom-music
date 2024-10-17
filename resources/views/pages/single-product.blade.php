@@ -350,7 +350,6 @@ input[type="number"] {
         <div class="container">
             <div class="row gutter-lg">
                 <div class="">
-                    {{-- @dd($product->product_variation); --}}
                     @if(count($product->variation) > 0 )
                     <div class="card mb-3">
                         <div class="card-body">
@@ -725,10 +724,6 @@ input[type="number"] {
                                     <p>Hi, how can I help you?</p>
                                     <span class="timestamp">10:00 AM</span>
                                 </div>
-{{--                                <div class="message sent">--}}
-{{--                                    <p>Hi, how can I help you?</p>--}}
-{{--                                    <span class="timestamp">10:01 AM</span>--}}
-{{--                                </div>--}}
                                 <input type="hidden" value="{{url('/product/'.$product->id.'/'.\Illuminate\Support\Str::slug($product->title).'')}}">
                             </div>
                             <form action="">
@@ -833,7 +828,7 @@ input[type="number"] {
                                                 </div>
                                             </div>
                                             <hr style="border: solid grey 1px">
-{{--                                            <p style="background-color: #a8b4bb;font-size: 1px;margin-top:-3%;">.</p>--}}
+                                      {{--                                            <p style="background-color: #a8b4bb;font-size: 1px;margin-top:-3%;">.</p>--}}
                                             <div class="product-price" >
                                                 @if($product->discount_price)
                                                     <ins class="new-price  float-left" style="color: #7f00ff;"> &#2547; {{ $product->discount_price }} </ins><del class="old-price text-danger" > &#2547; {{ $product->price }} </del>
@@ -852,9 +847,9 @@ input[type="number"] {
                                                     <h4>Product Weight: <span style="color:#117a8b">{{ $product->weight }}</span><span style="color:#117a8b">{{ $product->unit}}</span></h4>
                                                 </div>
                                             </div>
-{{--                                            <p style="background-color: #a8b4bb;font-size: 1px;margin-top:0%;">.</p>--}}
+                                       {{--                                            <p style="background-color: #a8b4bb;font-size: 1px;margin-top:0%;">.</p>--}}
                                             <hr style="border: solid grey 1px">
-{{--                                             <hr class="product-divider">--}}
+                                       {{--                                             <hr class="product-divider">--}}
                                             @if($product->type == 'variation')
                                                 @foreach(json_decode($product->choice_options, true) as $option)
                                                     <div class="product-form product-variation-form product-size-swatch">
@@ -1098,6 +1093,27 @@ input[type="number"] {
                             </form>
                         </div>
                     @endif
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
                     <div class="card mb-3 show-card">
                         <div class="card-header" style="height: 35px;">
                             <p>Delivery</p>

@@ -131,7 +131,7 @@
                   <div class="item-button"><a href="wishlist.html" class="mv-btn mv-btn-style-11 btn-my-wishlist"><span class="btn-inner"><span class="icon fa fa-heart-o"></span><span class="number">8</span></span></a></div>
 
                   <div class="item-button dropdown mv-dropdown-style-1 script-dropdown-1">
-                    <button type="button" class="mv-btn mv-btn-style-11 btn-dropdown btn-my-cart"><span class="btn-inner"><span class="icon fa fa-shopping-bag"></span><span class="number" id="total_count">{{ Session::has('cart') ? array_sum(array_column(Session::get('cart'), 'quantity')) : 0 }}</span></span></button>
+                    <button type="button" class="mv-btn mv-btn-style-11 btn-dropdown btn-my-cart"><span class="btn-inner"><span class="icon fa fa-shopping-bag"></span><span class="number" id="total_count">{{ Session::has('cart') ? array_sum(array_column(Session::get('cart'), 'quantity')) : Cart::count() }}</span></span></button>
                     <a type="button" href="{{route('all.musics')}}" class="mv-btn mv-btn-style-11"><span class="btn-inner"><span class="fa fa-music"></span></span></a>
                     <div class="dropdown-menu pull-right">
                       <div class="dropdown-menu-inner">
@@ -143,14 +143,14 @@
                               <div class="item-inner">
                                 <div class="mv-dp-table align-top">
                                   <div class="mv-dp-table-cell block-39-thumb">
-                                    <div class="thumb-inner mv-lightbox-style-1"><a href="product-detail.html" title="Richa Rock Glove"><img src="{{ asset('images/product/'. $cart->options->image) }}" alt="demo" class="block-39-thumb-img"/></a></div>
+                                    <div class="thumb-inner mv-lightbox-style-1"><a href="{{route('single.product',[$cart->id, Str::slug($cart->name)])}}" title="Richa Rock Glove"><img src="{{ asset($cart->options->image) }}" alt="demo" class="block-39-thumb-img"/></a></div>
                                   </div>
                                   @php
                                   $p_price=($cart->price) * ($cart->qty)
                                   @endphp
                                   <div class="mv-dp-table-cell block-39-main">
                                     <div class="block-39-main-inner">
-                                      <div class="block-39-title"><a href="product-detail.html" title="Richa Rock Glove" class="mv-overflow-ellipsis">{{$cart->name}}</a></div>
+                                      <div class="block-39-title"><a href="{{route('single.product',[$cart->id, Str::slug($cart->name)])}}" title="Richa Rock Glove" class="mv-overflow-ellipsis">{{$cart->name}}</a></div>
                                       <div class="block-39-price"> 
                                         <div class="new-price" style="font-size: 13px;">Price: {{ env('CURRENCY') }}{{ $cart->price }} {{ env('UAE_CURRENCY') }} X {{ $cart->qty }} = {{$p_price}}</div>
                                       </div>

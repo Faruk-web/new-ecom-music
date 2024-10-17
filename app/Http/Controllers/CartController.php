@@ -10,19 +10,21 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Coupon;
 use Illuminate\Support\Str;
-use Cart;
+// use Cart;
 use Auth;
 use Alert;
 use Carbon\Carbon;
 use Session;
 use WisdomDiala\Countrypkg\Models\Country;
-
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Gloudemans\Shoppingcart\Exceptions\InvalidRowIDException;
 class CartController extends Controller
 {
     public function index()
     {
     	$carts = Cart::content();
-        return view('theam.cart', compact('carts'));
+        $vouchers = Coupon::where('type', 'voucher')->latest()->take(4)->get();
+        return view('theam.cart', compact('carts','vouchers'));
     }
 
     public function add_cart(Request $request)
@@ -159,8 +161,35 @@ class CartController extends Controller
         return response()->json(['message' => 'Product added to cart successfully!']);
     }
 
+    public function update(Request $request, $id)
+    {
+        // Validate the incoming request
+        $request->validate([
+            'quantity' => 'required|integer|min:1|max:999',
+        ]);
+    
+        try {
+            // Check if the cart item exists
+            $cartItem = Cart::get($id); // Check for the specific item by row ID
+    
+            if (!$cartItem) {
+                return response()->json(['message' => 'Item not found in cart.'], 404);
+            }
+    
+            // Update the quantity of the cart item
+            Cart::update($id, ['qty' => $request->input('quantity')]);
+    
+            return response()->json(['success' => true, 'message' => 'Cart updated successfully!']);
+        } catch (InvalidRowIDException $e) {
+            return response()->json(['message' => 'The cart does not contain this item.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'An error occurred while updating the cart.'], 500);
+        }
+    }
+
     public function update_cart(Request $request)
 {
+   
     // Validate the incoming request data
     $request->validate([
         'cart' => 'required|array',

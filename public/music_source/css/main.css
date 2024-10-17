@@ -17,7 +17,7 @@ body {
   line-height: 1.642857;
   font-weight: lighter;
   color: #727272;
-  background: #fff;
+  background:#1c0202;
 }
 @media screen and (max-width: 767px) {
   body {
@@ -2965,17 +2965,17 @@ h6 {
 }
 .mv-inputbox {
   display: block;
-  width: 100%;
+  width: 60%;
   font-family: 'Varela Round', sans-serif;
   font-weight: normal;
   line-height: normal;
-  font-size: 14px;
-  color: #727272;
+  font-size:20px;
+  color: #111;
   background: #fff;
   border: 2px solid #f2f2f2;
   -webkit-border-radius: 0;
           border-radius: 0;
-  padding: 0 15px;
+          padding: 5px 10px;
   margin: 0;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -10724,6 +10724,7 @@ select option.option-please-select {
 }
 .mv-block-style-14 .mv-title-style-3 .title-3-text .behind {
   line-height: 1;
+  font-size: 167px;
 }
 @media screen and (max-width: 1919px) {
   .mv-block-style-14 .mv-title-style-3 .title-3-text .behind {
@@ -16512,39 +16513,37 @@ body.boxed-layout .header-main-nav {
 /* --------------------------------------------------------------------- */
 /* HEADER
 /* --------------------------------------------------------------------- */
+/* General styling for smooth transition */
 .mv-fixed-enabled {
-  -webkit-transition: all 0.4s ease;
+  position: fixed; /* Always fixed at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.95); /* Slight opacity for a modern effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for better separation */
   transition: all 0.4s ease;
 }
+
+/* Media query for devices smaller than 991px */
 @media screen and (max-width: 991px) {
   .mv-fixed-enabled {
-    -webkit-transition: all 0.8s ease;
-    transition: all 0.8s ease;
+    transition: all 0.8s ease; /* Slower transition for mobile */
   }
 }
+
+/* When the body has 'fixed-nav' class */
 body.fixed-nav .mv-fixed-enabled {
-  position: fixed;
-  left: 0;
   top: 0;
-  right: auto;
-  bottom: auto;
-  -webkit-transform: translate(0, -100%);
-      -ms-transform: translate(0, -100%);
-          transform: translate(0, -100%);
-  width: 100%;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  z-index: 9999;
+  transform: translate(0, 0); /* Ensure the header stays in place */
+  background: rgb(15 111 133);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.12); 
 }
-body.fixed-nav.fixed-nav-appear .mv-fixed-enabled {
-  top: 0;
-  background: #fff;
-  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.12);
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
-}
+
+/* Optional: Add spacing to avoid content overlap */
+
+
 .header-top {
   background: #f6f6f6;
 }
@@ -16837,7 +16836,7 @@ body.fixed-nav.fixed-nav-appear .mv-fixed-enabled {
 }
 @media screen and (max-width: 991px) {
   .header-main-nav {
-    background: #fff;
+    background: rgb(15 111 133);
   }
 }
 .header-main-nav .container-inner {
@@ -17425,7 +17424,7 @@ body.fixed-nav .mv-header-style-2 .header-shop .mv-btn-style-11:active {
 }
 @media screen and (max-width: 991px) {
   .mv-header-style-3 .header-search .item-button > .mv-btn {
-    color: #484848;
+    color: #fff;
   }
 }
 .mv-header-style-3 .header-shop .mv-btn-style-11 {
@@ -17441,11 +17440,11 @@ body.fixed-nav .mv-header-style-2 .header-shop .mv-btn-style-11:active {
 }
 @media screen and (max-width: 991px) {
   .mv-header-style-3 .header-shop .mv-btn-style-11 {
-    color: #484848;
+    color: #fff;
   }
 }
 body.fixed-nav .mv-header-style-3 .header-main-nav ul.nav > li > a {
-  color: #2e2e2e;
+  color: #fff;
 }
 body.fixed-nav .mv-header-style-3 .header-main-nav ul.nav > li.sfHover > a,
 body.fixed-nav .mv-header-style-3 .header-main-nav ul.nav > li > a:hover,
@@ -17453,7 +17452,7 @@ body.fixed-nav .mv-header-style-3 .header-main-nav ul.nav > li.active > a {
   color: #ffb535;
 }
 body.fixed-nav .mv-header-style-3 .header-search .item-button > .mv-btn {
-  color: #484848;
+  color: #fff;
 }
 @media screen and (min-width: 992px) {
   body.fixed-nav .mv-header-style-3 .header-search .item-button > .mv-btn:hover {
@@ -17464,7 +17463,7 @@ body.fixed-nav .mv-header-style-3 .header-search .item-button > .mv-btn:active {
   color: #ffb535;
 }
 body.fixed-nav .mv-header-style-3 .header-shop .mv-btn-style-11 {
-  color: #484848;
+  color: #fff;
 }
 @media screen and (min-width: 992px) {
   body.fixed-nav .mv-header-style-3 .header-shop .mv-btn-style-11:hover {

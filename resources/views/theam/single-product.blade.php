@@ -23,11 +23,12 @@
         </div>
       </section>
       <!-- .main-breadcrumb-->
-
       <section class="mv-main-body product-detail-main mv-bg-gray mv-wrap">
         <div class="container">
           <div class="post">
             <div class="block-info mv-box-shadow-gray-1">
+
+            @if(count($product->variation) > 0 )
               <div class="mv-block-style-27">
                 <div class="mv-col-wrapper">
                   <div class="mv-col-left block-27-col-slider">
@@ -44,11 +45,11 @@
                           </div>
                         </div>
                         <!-- .block-26-gallery-main-->
-
                         <div class="block-26-gallery-thumbs">
                           <div class="block-26-gallery-thumbs-inner">
                             <div class="slider gallery-thumbs">
                             @foreach($product->variation as $image)
+                            
                               <div class="slick-slide">
                                 <div class="slick-slide-inner mv-box-shadow-gray-2"><img src="{{ asset($image->variation_image) }}" alt="demo" class="block-26-thumbs-img"/></div>
                               </div>
@@ -73,9 +74,8 @@
                       </div>
                     </div>
 
-                    <div><img style="height: 451px;width: 535px;" src="{{ asset($product->image) }}" alt="demo" onclick="$(this).remove()" class="block-27-logo"/></div>
+                    <!-- <div><img src="images/demo/demo_120x40.png" alt="demo" onclick="$(this).remove()" class="block-27-logo"/></div> -->
                   </div>
-
                   <div class="mv-col-right block-27-col-info">
                     <div class="col-info-inner">
                       <div class="block-27-info">
@@ -240,6 +240,7 @@
                                   </div>
                                 </td>
                               </tr>
+                             
                               <tr>
                                 <td>Color:</td>
                                 <td>
@@ -253,36 +254,33 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td>Quantity:</td>
+                                <td>Stock Qty</td>
                                 <td>
-                                  <div class="mv-spinner-style-1 input-quantity-wrapper">
-                                   <!-- HTML for Quantity Buttons and Input -->
-                                    <input type="button" value="-" onclick="quickViewQuantityDec(event);" class="button-minus faruk_qty" data-field="quantity">
-                                    <input type="text" step="1" readonly max="" value="1" name="qty" class="quantity-field">
-                                    <input type="button" value="+" onclick="quickViewQuantityIncr(event)" class="button-plus faruk_qty" data-field="quantity">
-
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Categories:</td>
-                                <td>
-                                  <div class="mv-list-inline-style-2">
-                                    <ul class="list-inline-2">
-                                      <li class="active"><a href="#" class="mv-btn">Women Shirts</a></li>
-                                      <li><a href="#" class="mv-btn">Tops</a></li>
-                                      <li><a href="#" class="mv-btn">Shirts & Blouses</a></li>
+                                  <div class="mv-list-inline-style-1 space-10">
+                                    <ul class="list-inline-1">
+                                      <li><a href="#">{{ $product->qty }}</a></li>
                                     </ul>
                                   </div>
                                 </td>
                               </tr>
                               <tr>
-                                <td>Tags: </td>
+                                <td>Quantity:</td>
+                                <td>
+
+                                  <input type="button" value="-" onclick="quickViewQuantityDec(event);" class=" button-minus faruk_qty" data-field="quantity">
+                                    <input style="width: 32px;background: #f6f6f6;" type="text" step="1" readonly max="" value="1" name="qty"  class="quantity-field"/>
+                                    <input type="button" value="+" onclick="quickViewQuantityIncr(event)" class=" button-plus faruk_qty" data-field="quantity">
+
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td>Catalog:</td>
                                 <td>
                                   <div class="mv-list-inline-style-2">
                                     <ul class="list-inline-2">
-                                      <li><a href="#" class="mv-btn">Women</a></li>
-                                      <li><a href="#" class="mv-btn">Black</a></li>
+                                      <li class="active"><a href="#" class="mv-btn">{{$product->brand->title}}</a></li>
+                                      <li><a href="#" class="mv-btn">{{$product->title}}</a></li>
                                     </ul>
                                   </div>
                                 </td>
@@ -321,6 +319,299 @@
                 </div>
               </div>
               <!-- .mv-block-style-27-->
+              @else
+              <div class="mv-block-style-27">
+                <div class="mv-col-wrapper">
+                  <div class="mv-col-left block-27-col-slider">
+                    <div class="mv-block-style-26">
+                      <div class="product-detail-slider mv-slick-slide mv-lightbox-style-1">
+                        <div class="block-26-gallery-main">
+                          <div class="slider gallery-main">
+                          @foreach($product->product_image as $image)
+                            <div class="slick-slide">
+                              <div class="slick-slide-inner"><a href="{{ asset($image->image) }}" title="" class="mv-lightbox-item"><img src="{{ asset($image->image) }}" alt="demo" class="block-26-main-img"/></a></div>
+                            </div>
+                            <!-- .slick-slide-->
+                            @endforeach
+                          </div>
+                        </div>
+                        <!-- .block-26-gallery-main-->
+                        <div class="block-26-gallery-thumbs">
+                          <div class="block-26-gallery-thumbs-inner">
+                            <div class="slider gallery-thumbs">
+                            @foreach($product->product_image as $image)
+                            
+                              <div class="slick-slide">
+                                <div class="slick-slide-inner mv-box-shadow-gray-2"><img src="{{ asset($image->image) }}" alt="demo" class="block-26-thumbs-img"/></div>
+                              </div>
+                              @endforeach
+                            </div>
+
+                            <div class="slick-slide-control"></div>
+                          </div>
+                        </div>
+                        <!-- .block-26-gallery-thumbs-->
+                      </div>
+                      <!-- .product-detail-slider-->
+                    </div>
+                    <!-- .mv-block-style-26-->
+
+                    <div onclick="$(this).remove()" class="block-27-sale-off mv-label-style-2 text-center">
+                      <div class="label-2-inner">
+                        <ul class="label-2-ul">
+                          <li class="number">-25%</li>
+                          <li class="text">sale</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div><img src="{{ asset('/') }}music_source/images/demo/demo_120x40.png" alt="demo" onclick="$(this).remove()" class="block-27-logo"/></div>
+                  </div>
+                  <div class="mv-col-right block-27-col-info">
+                    <div class="col-info-inner">
+                      <div class="block-27-info">
+                        <div class="block-27-title">{{ $product->title }}</div>
+
+                        <div class="block-27-rate clearfix">
+                          <div class="dropdown mv-dropdown-style-1 script-dropdown-2"><a href="#customer-review" class="btn-dropdown"><span data-rate="true" data-score="4.6" class="mv-rate"><span class="rate-inner mv-f-14 text-left"><span class="stars-wrapper empty-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></span><span class="stars-wrapper filled-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></span></span><span class="rate-score">(<span class="score-number">4.4</span>)</span></span></a>
+                            <div class="dropdown-menu">
+                              <div class="dropdown-menu-inner">
+                                <div class="mv-block-style-42">
+                                  <div class="block-42-header text-center">4.4 out of 5 stars</div>
+                                  <div class="block-42-body">
+                                    <div class="block-42-list">
+
+                                      <div class="item">
+                                        <div class="mv-dp-table align-middle">
+                                          <div class="mv-dp-table-cell col-type-star">
+                                            <div class="title-type-star"> <strong>5 star</strong></div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-progress-bar">
+                                            <div class="mv-progress-bar thick-bars">
+                                              <div class="progress">
+                                                <div style="width: 69%;" class="progress-bar-wrap">
+                                                  <div class="progress-bar progress-bar-primary mv-animated"></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-percent">
+                                            <div class="title-percent">69%</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- .item-->
+
+                                      <div class="item">
+                                        <div class="mv-dp-table align-middle">
+                                          <div class="mv-dp-table-cell col-type-star">
+                                            <div class="title-type-star"> <strong>4 star</strong></div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-progress-bar">
+                                            <div class="mv-progress-bar thick-bars">
+                                              <div class="progress">
+                                                <div style="width: 11%;" class="progress-bar-wrap">
+                                                  <div class="progress-bar progress-bar-primary mv-animated"></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-percent">
+                                            <div class="title-percent">11%</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- .item-->
+
+                                      <div class="item">
+                                        <div class="mv-dp-table align-middle">
+                                          <div class="mv-dp-table-cell col-type-star">
+                                            <div class="title-type-star"> <strong>3 star</strong></div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-progress-bar">
+                                            <div class="mv-progress-bar thick-bars">
+                                              <div class="progress">
+                                                <div style="width: 6%;" class="progress-bar-wrap">
+                                                  <div class="progress-bar progress-bar-primary mv-animated"></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-percent">
+                                            <div class="title-percent">6%</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- .item-->
+
+                                      <div class="item">
+                                        <div class="mv-dp-table align-middle">
+                                          <div class="mv-dp-table-cell col-type-star">
+                                            <div class="title-type-star"> <strong>2 star</strong></div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-progress-bar">
+                                            <div class="mv-progress-bar thick-bars">
+                                              <div class="progress">
+                                                <div style="width: 4%;" class="progress-bar-wrap">
+                                                  <div class="progress-bar progress-bar-primary mv-animated"></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-percent">
+                                            <div class="title-percent">4%</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- .item-->
+
+                                      <div class="item">
+                                        <div class="mv-dp-table align-middle">
+                                          <div class="mv-dp-table-cell col-type-star">
+                                            <div class="title-type-star"> <strong>1 star</strong></div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-progress-bar">
+                                            <div class="mv-progress-bar thick-bars">
+                                              <div class="progress">
+                                                <div style="width: 10%;" class="progress-bar-wrap">
+                                                  <div class="progress-bar progress-bar-primary mv-animated"></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="mv-dp-table-cell col-percent">
+                                            <div class="title-percent">10%</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- .item-->
+                                    </div>
+                                  </div>
+                                  <div class="block-42-footer text-center"><a href="#customer-review" class="btn-see-all">See all 405 reviews &nbsp;<i class="fa fa-caret-right"></i></a></div>
+                                </div>
+                                <!-- .mv-block-style-42-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="block-27-price">
+                        @if($product->discount_price)
+                              <ins class="content-price" style="color: #7f00ff;">   </ins>
+                              <div class="content-price"><span class="new-price">&#2547; {{ $product->discount_price }}</span><del class="old-price text-danger float-right" > &#2547; {{ $product->price }} </del></div>
+                              @else
+                              <div class="content-price"><span class="new-price">&#2547; {{ $product->price }}</span></div>
+                          @endif
+                        </div>
+
+                        <div class="block-27-desc">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc finibus sit amet ligula id gravida. Curabitur quis orci non leo varius dapibus in ornare tortor.</div>
+
+                        <div class="block-27-table-info">
+                          <form method="GET">
+                            <table>
+                              <tr>
+                                <td>Select size:</td>
+                                <td>
+                                  <div class="mv-list-inline-style-1">
+                                    <ul class="list-inline-1">
+                                    @if($product->type == 'variation')
+                                    <li class="active"><a href="#" class="mv-btn mv-btn-style-8">XXL</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">XL</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">L</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">M</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">S</a></li>
+                                        @else
+                                      <li class="active"><a href="#" class="mv-btn mv-btn-style-8">XXL</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">XL</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">L</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">M</a></li>
+                                      <li><a href="#" class="mv-btn mv-btn-style-8">S</a></li>
+                                      @endif
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                             
+                              <tr>
+                                <td>Color:</td>
+                                <td>
+                                  <div class="mv-list-inline-style-1 space-10">
+                                    <ul class="list-inline-1">
+                                      <li class="active"><a href="#"><span style="background-color: #ffb535" class="icon-color"></span></a></li>
+                                      <li><a href="#"><span style="background-color: #222222" class="icon-color"></span></a></li>
+                                      <li><a href="#"><span style="background-color: #eeeeee" class="icon-color"></span></a></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Stock Qty</td>
+                                <td>
+                                  <div class="mv-list-inline-style-1 space-10">
+                                    <ul class="list-inline-1">
+                                      <li><a href="#">{{ $product->qty }}</a></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Quantity:</td>
+                                <td>
+
+                                  <input type="button" value="-" onclick="quickViewQuantityDec(event);" class=" button-minus faruk_qty" data-field="quantity">
+                                    <input style="width: 32px;background: #f6f6f6;" type="text" step="1" readonly max="" value="1" name="qty"  class="quantity-field"/>
+                                    <input type="button" value="+" onclick="quickViewQuantityIncr(event)" class=" button-plus faruk_qty" data-field="quantity">
+
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td>Catalog:</td>
+                                <td>
+                                  <div class="mv-list-inline-style-2">
+                                    <ul class="list-inline-2">
+                                      <li class="active"><a href="#" class="mv-btn">{{$product->brand->title}}</a></li>
+                                      <li><a href="#" class="mv-btn">{{$product->title}}</a></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- .block-27-info-->
+
+                      <div class="block-27-message content-message mv-message-style-1">
+                        <div class="message-inner"></div>
+                      </div>
+                      <!-- .block-27-message-->
+                    </div>
+
+                    <div class="block-27-button">
+                      <div class="mv-dp-table align-middle">
+                        <div class="mv-dp-table-cell">
+                          <div class="mv-btn-group text-left">
+                            <div class="group-inner">
+                            <div class="group-inner">
+                                  <!-- Add to Cart Button -->
+                                    <button type="button" onclick="addToCart({{$product->id}})" class="mv-btn mv-btn-style-1"><span class="btn-inner"><i class="btn-icon fa fa-cart-plus"></i><span class="btn-text">add to cart</span></span></button>
+                                    <button type="button" onclick="addToWishlist({{$product->id}})" class="mv-btn mv-btn-style-1"><span class="btn-inner"><i class="btn-icon fa fa-heart-o"></i><span class="btn-text">wishlist</span></span></button>
+                                    <!-- Add to Wishlist Button -->
+                              </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- .mv-block-style-27-->
+             @endif 
+
             </div>
             <!-- .block-info-->
 

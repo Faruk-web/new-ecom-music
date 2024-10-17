@@ -156,7 +156,8 @@ class PageController extends Controller
         $brand = Brand::find($id);
         $products = Product::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
         $category = Category::with('music')->where('parent_id', $brand->id)->orderBy('id', 'DESC')->get();
-        return view('theam.brand_profile', compact('products','category','brand'));
+        $album = Album::orderBy('id', 'DESC')->paginate(12);
+        return view('theam.brand_profile', compact('products','category','brand','album'));
     }
     
     public function offer_products()
@@ -168,7 +169,7 @@ class PageController extends Controller
 
     public function single_product($id, $slug)
     {
-        $product = Product::with('ratingReview')->find($id);
+        $product = Product::with('brand','category')->find($id);
         $user_id = $product->user_id;
         if (!is_null($product)) {
             $shareButtons = \Share::page(

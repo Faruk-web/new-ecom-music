@@ -104,7 +104,9 @@ Route::get('/terms-and-conditions', [App\Http\Controllers\PageController::class,
 Route::get('/shopping-carts', [App\Http\Controllers\CartController::class, 'index'])->name('carts');
 Route::post('/add-to-cart', [App\Http\Controllers\CartController::class, 'add_cart'])->name('cart.add');
 Route::post('/add-to-cart-form/{id}', [App\Http\Controllers\CartController::class, 'add_cart_form'])->name('cart.add-form');
-Route::post('/cart/update', [App\Http\Controllers\CartController::class, 'update_cart'])->name('cart.update');
+// Route::post('/cart/update', [App\Http\Controllers\CartController::class, 'update_cart'])->name('cart.update');
+Route::post('/cart/update/{id}', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
+
 Route::post('/remove-from-cart', [App\Http\Controllers\CartController::class, 'remove_cart'])->name('cart.remove');
 Route::get('/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('checkout');
 Route::get('/get-division-by-country-id', [App\Http\Controllers\CartController::class, 'getDivision'])->name('get.division');
