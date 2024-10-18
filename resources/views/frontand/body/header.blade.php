@@ -98,10 +98,11 @@
                     <li><a href="#"><span class="menu-text">Bands <i class="menu-icon fa fa-angle-down"></i></span></a>
                       <ul>
                         <li><a href="{{route('all.brand')}}">All Brands</a></li>
-                        <li><a href="product-grid-2.html">R&B</a></li>
-                        <li><a href="product-grid-3.html">ZAJJ</a></li>
-                        <li><a href="product-grid-3-no-sb.html">ROCK</a></li>
-                        <li><a href="product-grid-4-no-sb.html">RAP</a></li>
+                        <li><a href="{{route('brand.type','FOCK')}}">FOCK</a></li>
+                        <li><a href="{{route('brand.type','ROCK')}}">ROCK</a></li>
+                        <li><a href="{{route('brand.type','RB')}}">R&B</a></li>
+                        <li><a href="{{route('brand.type','JAZZ')}}">JAZZ</a></li>
+                        <li><a href="{{route('brand.type','RAB')}}">RAB</a></li>
                       </ul>
                     </li>
                     <li><a href="{{route('all.musics')}}"><span class="menu-text">Music <i class="menu-icon fa fa-angle-down"></i></span></a>

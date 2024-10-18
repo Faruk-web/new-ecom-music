@@ -96,53 +96,71 @@
                                 </div>
                               </div> 
                               <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Brand type</label>
+                          <select name="brand_type" class="form-control @error('brand_type') is-invalid @enderror">
+                          <option value="{{ $brand->brand_type }}" {{ $brand->brand_type ? 'selected' : '' }}>{{ $brand->brand_type  }}</option>
+                            <option value="FOCK">FOCK</option>
+                            <option value="ROCK">ROCK</option>
+                            <option value="RB">R&B</option>
+                            <option value="JAZZ">JAZZ</option>
+                            <option value="RAB">RAB</option>
+                          </select>
+                          @error('brand_type')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                        </div>
+                      </div>
+                              <div class="col-md-12">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      <label>Brand Image *</label>
+                                      <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" Value="{{ $brand->image }}">
+                                      @error('image')
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                      @enderror
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Video </label>
+                                    <input type="file" name="video" class="form-control @error('video') is-invalid @enderror" placeholder="Image" >
+                                    @error('video')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                  </div>
+                              </div>
                               <div class="col-md-12">
                                 <div class="form-group">
-                                  <label>Brand Image *</label>
-                                  <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" Value="{{ $brand->image }}">
-                                  @error('image')
+                                  <label>Audio </label>
+                                  <input type="file" name="audio" class="form-control @error('audio') is-invalid @enderror" placeholder="Audio" >
+                                  @error('audio')
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $message }}</strong>
                                       </span>
                                   @enderror
                                 </div>
-                              </div>
-                              <div class="form-group">
-                                <label>Video </label>
-                                <input type="file" name="video" class="form-control @error('video') is-invalid @enderror" placeholder="Image" >
-                                @error('video')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                              </div>
-                              </div>
-                              <div class="col-md-12">
-                              <div class="form-group">
-                                <label>Audio </label>
-                                <input type="file" name="audio" class="form-control @error('audio') is-invalid @enderror" placeholder="Audio" >
-                                @error('audio')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                              </div>
                             </div>
                               <div class="form-group col-md-9">
-                               <div class="form-check form-check-inline ">
-                                  <input class="form-check-input group1" id="is_active" type="checkbox" checked name="is_active" value="2" @if($brand->is_active == 2) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success" style="height: 50px; width: 30px" >
-                                   <label class="form-check-label" for="is_active">Only Brand</label>
+                                <div class="form-check form-check-inline ">
+                                    <input class="form-check-input group1" id="is_active" type="checkbox" checked name="is_active" value="2" @if($brand->is_active == 2) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success" style="height: 50px; width: 30px" >
+                                    <label class="form-check-label" for="is_active">Only Brand</label>
+                                  </div>
                                 </div>
-                               </div>
-                               <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Short Description </label>
-                                    <textarea name="description" class="form-control @error('short_descp') is-invalid @enderror" placeholder="Description">{!! $brand->description !!}</textarea>
-                                    @error('long_descp')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                      <label>Short Description </label>
+                                      <textarea name="description" class="form-control @error('short_descp') is-invalid @enderror" placeholder="Description">{!! $brand->description !!}</textarea>
+                                      @error('long_descp')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                      @enderror
                                 </div>
                             </div>
                               <div class="col-md-12">
@@ -230,6 +248,24 @@
                           <label>Brand Title *</label>
                           <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title" required>
                           @error('title')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Brand type</label>
+                          <select name="brand_type" class="form-control @error('brand_type') is-invalid @enderror">
+                            <option value="0">Select a Brand type</option>
+                            <option value="FOCK">FOCK</option>
+                            <option value="ROCK">ROCK</option>
+                            <option value="RB">R&B</option>
+                            <option value="JAZZ">JAZZ</option>
+                            <option value="RAB">RAB</option>
+                          </select>
+                          @error('brand_type')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>

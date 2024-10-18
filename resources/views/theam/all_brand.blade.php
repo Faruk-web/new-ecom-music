@@ -86,5 +86,86 @@
      </div>
       </section>
       <!-- .home-2-news-accessories-->
+      <section class="home-3-featured-products mv-wrap" style="background:#1c0202;">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="featured-title mv-title-style-2 title-home-3">
+        <div class="title-2-inner">
+          <img src="{{ asset('/') }}music_source/images/icon/icon_m_3.png" alt="Featured Products Icon" class="icon image-live-view" />
+          <span class="main">Featured Products</span>
+          <span class="sub">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</span>
+        </div>
+      </div>
+      <!-- .featured-title-->
+
+      <div class="featured-main mv-filter-style-2">
+        <div class="filter-button mv-btn-group">
+          <div class="group-inner">
+            <button data-filter="*" class="mv-btn mv-btn-style-8 active">All</button>
+            <button data-filter=".FOCK" class="mv-btn mv-btn-style-8">FOCK</button>
+            <button data-filter=".ROCK" class="mv-btn mv-btn-style-8">ROCK</button>
+            <button data-filter=".RB" class="mv-btn mv-btn-style-8">R&B</button>
+            <button data-filter=".JAZZ" class="mv-btn mv-btn-style-8">JAZZ</button>
+            <button data-filter=".RAB" class="mv-btn mv-btn-style-8">RAB</button>
+          </div>
+        </div>
+        <!-- .filter-button-->
+
+        <div class="row filter-list-wrapper">
+          <div class="filter-list mv-block-style-2">
+            <div class="block-2-list">
+              @foreach ($brands as $item)
+          
+                <article class="col-xs-6 col-sm-4 col-md-4 item item-filter-home-3 filter-item post {{ $item->brand_type }}">
+                <div class="item-inner mv-effect-translate-top-bottom">
+                    <div class="content-thumb">
+                      <div class="thumb-inner mv-effect-relative"><a data-mv-href="product-detail.html" title="RST Full Zipped Sweatshirt"><img src="{{ asset('images/brand/'. $item->image)}}" alt="demo" class="mv-effect-item active"/><img src="{{ asset('images/brand/'. $item->image)}}" alt="demo" class="mv-effect-item"/></a>
+                        <div onclick="$(this).remove()" class="content-sale-off mv-label-style-2 text-center">
+                          <div class="label-2-inner">
+                            <ul class="label-2-ul">
+                              <li class="number">-25%</li>
+                              <li class="text">sale</li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div class="content-message mv-message-style-1">
+                          <div class="message-inner"></div>
+                        </div>
+                      </div>
+                      <div class="content-hover">
+                        <div class="content-button mv-btn-group text-center">
+                        <div class="group-inner">
+                          <a class="mv-btn mv-btn-style-1" style="width: 278px;" href="{{route('products', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Shops</span></span></a>
+                            <a  class="mv-btn mv-btn-style-1" style="width: 278px;" style="width: 278px;" href="{{route('musics', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Musics</span></span></a>
+                            <a  class="mv-btn mv-btn-style-1" style="width: 278px;" href="{{route('events', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Events</span></span></a>
+                            <a class="mv-btn mv-btn-style-1" style="width: 278px;" href="{{route('brand.profile', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Profile</span></span></a>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="content-default">
+                      <div data-rate="true" data-score="5.0" class="content-rate mv-rate text-center">
+                        <div class="rate-inner mv-f-14 text-left">
+                          <div class="stars-wrapper empty-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
+                          <div class="stars-wrapper filled-stars"><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span><span class="item-rate"></span></div>
+                        </div>
+                      </div>
+                      <div class="content-price"><span class="new-price">{{$item->title}}</span></div>
+                     
+                    </div>
+                  </div>
+                </article>
+              @endforeach
+            </div>
+          </div>
+        </div>
+        <!-- .filter-list-wrapper-->
+      </div>
+      <!-- .featured-main-->
+    </div>
+  </div>
+</section>
 
 @endsection

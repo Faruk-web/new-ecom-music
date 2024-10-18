@@ -77,6 +77,7 @@ Route::get('/accessories', [App\Http\Controllers\PageController::class, 'accesso
 Route::get('/limited_edition', [App\Http\Controllers\PageController::class, 'limited_edition'])->name('limited_edition');
 Route::get('/musics/{id}', [App\Http\Controllers\PageController::class, 'musics'])->name('musics');
 Route::get('/all/musics', [App\Http\Controllers\PageController::class, 'allmusics'])->name('all.musics');
+Route::get('/brand/type/{type}', [App\Http\Controllers\PageController::class, 'brandtype'])->name('brand.type');
 Route::get('/album', [App\Http\Controllers\PageController::class, 'album'])->name('album');
 Route::get('/album/single/{id}', [App\Http\Controllers\PageController::class, 'singlealbum'])->name('single.album');
 Route::get('/brand/profile/{id}', [App\Http\Controllers\PageController::class, 'brandprofile'])->name('brand.profile');

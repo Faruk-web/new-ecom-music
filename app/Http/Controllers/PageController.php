@@ -112,7 +112,8 @@ class PageController extends Controller
     }
     public function allbrand()
     {
-        $brands = Brand::orderBy('id', 'DESC')->paginate(30);
+        $brands = Brand::orderBy('id', 'DESC')->get();
+
         return view('theam.all_brand', compact('brands'));
     }
     public function album()
@@ -143,6 +144,12 @@ class PageController extends Controller
         return view('theam.all_music', compact('allmusic','products'));
     }
     
+    public function brandtype($type)
+    {
+        $brand = Brand::where("brand_type",$type)->get();
+        $products = Product::orderBy('id', 'DESC')->paginate(12);
+        return view('theam.brand_type', compact('brand','products','type'));
+    }
     public function musics($id)
     {
         $brand = Brand::find($id);
