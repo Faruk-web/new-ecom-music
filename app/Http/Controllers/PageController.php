@@ -113,8 +113,9 @@ class PageController extends Controller
     public function allbrand()
     {
         $brands = Brand::orderBy('id', 'DESC')->get();
-
-        return view('theam.all_brand', compact('brands'));
+        $musics = MusicModel::orderBy('id', 'DESC')->paginate(30);
+        $category = Category::with('music')->orderBy('id', 'DESC')->get();
+        return view('theam.all_brand', compact('brands','musics','category'));
     }
     public function album()
     {

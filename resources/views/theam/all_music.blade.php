@@ -190,7 +190,7 @@
               @foreach($products as $product)
                 <li class="mv-slider-item col-xs-6 col-sm-4 col-md-2">
                   <div class="mv-dp-table align-middle slider-item-inner">
-                    <div class="mv-dp-table-cell"><a  target="_blank"><img src="{{asset($product->image)}}" alt="logo_brand"/></a></div>
+                    <div class="mv-dp-table-cell"><a  target="_blank"><img style="height: 100px;" src="{{asset($product->image)}}" alt="logo_brand"/></a></div>
                   </div>
                 </li>
                 @endforeach

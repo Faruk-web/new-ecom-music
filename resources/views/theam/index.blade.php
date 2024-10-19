@@ -10,7 +10,7 @@
                 <div class="container">
                   <div class="caption-1-text-1">Best Sale</div>
                   <div class="caption-1-text-2">
-                    <div class="mv-title-style-1"><img src="{{ asset('images/slider/'. $slider->image)  }}" alt="icon" class="line-left"/><img src="{{ asset('images/slider/'. $slider->image)  }}" alt="icon" class="line-right"/>the black phantom</div>
+                    <div class="mv-title-style-1">the black phantom</div>
                   </div><a href="product-grid-3.html" class="caption-1-button-1 mv-btn mv-btn-style-1 responsive-btn-1-type-2"><span class="btn-inner"><i class="btn-icon fa fa-cart-plus"></i><span class="btn-text">shop now</span></span></a>
                 </div>
               </div>
@@ -18,7 +18,6 @@
             <!-- .mv-slider-item-->
             @endforeach
           </ul>
-
           <button id="home-1-slideshow-prev" type="button" class="mv-slider-control-btn prev mv-btn mv-btn-style-2"><span class="icon fa fa-angle-left"></span></button>
           <button id="home-1-slideshow-next" type="button" class="mv-slider-control-btn next mv-btn mv-btn-style-2"><span class="icon fa fa-angle-right"></span></button>
         </div>

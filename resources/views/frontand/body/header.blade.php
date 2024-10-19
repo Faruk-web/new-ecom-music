@@ -97,7 +97,7 @@
                     </li>
                     <li><a href="#"><span class="menu-text">Bands <i class="menu-icon fa fa-angle-down"></i></span></a>
                       <ul>
-                        <li><a href="{{route('all.brand')}}">All Brands</a></li>
+                        <li><a href="{{route('all.brand')}}">All Bands</a></li>
                         <li><a href="{{route('brand.type','FOCK')}}">FOCK</a></li>
                         <li><a href="{{route('brand.type','ROCK')}}">ROCK</a></li>
                         <li><a href="{{route('brand.type','RB')}}">R&B</a></li>
