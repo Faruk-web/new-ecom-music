@@ -97,14 +97,16 @@
       <!-- .main-breadcrumb-->
       <section class="home-2-news-accessories mv-wrap">
       <div class="container-fluid" style="background:#1c0202;">
-        <div class="container" style="margin-top:100px">
-          <div class="news-accessories-title mv-title-style-3">
-            <div class="title-3-text"><span class="main" style="color:#fff">{{$type}} Bands<span class="sub"></span></span></div>
-            <div class="title-3-line"></div>
+        <div class="container" >
+        <div class="featured-title mv-title-style-2 title-home-3">
+            <div class="title-2-inner" style="margin-top: 44px;">
+              <img src="{{ asset('/') }}music_source/images/icon/icon_m_3.png" alt="icon" class="icon image-live-view"/>
+              <span class="main">{{$type}} Bands</span>
+            </div>
           </div>
           <!-- .news-accessories-title-->
 
-          <div class="news-accessories-main">
+          <div class="news-accessories-main"style="margin-top:20px">
             <div class="mv-block-style-9">
               <div class="row block-9-list">
               @foreach($brand as $item)

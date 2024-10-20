@@ -47,76 +47,43 @@
     <div class="off-canvas-wrapper-left hidden-md hidden-lg">
         <div class="off-canvas-left">
           <div class="off-canvas-header">
+          
             <button class="btn-close-off-canvas click-close-off-canvas">x</button>
           </div>
           <div class="off-canvas-body">
             <nav class="main-nav">
-              <ul class="nav sf-menu expand-all">
-                <li class="mega-columns"><a href="{{route('index')}}"><span class="menu-text">Home <i class="menu-icon fa fa-angle-down"></i></span></a>
-                </li>
-                <li><a href="#"><span class="menu-text">Product <i class="menu-icon fa fa-angle-down"></i></span></a>
-                  <ul>
-                    <li><a href="product-list.html">Product List</a></li>
-                    <li><a href="product-grid-2.html">Product Grid 2</a></li>
-                    <li><a href="product-grid-3.html">Product Grid 3</a></li>
-                    <li><a href="product-grid-3-no-sb.html">Product Grid 3 No Sidebar</a></li>
-                    <li><a href="product-grid-4-no-sb.html">Product Grid 4 No Sidebar</a></li>
-                    <li><a href="product-grid-5-fullwidth.html">Product Grid 5 Fullwidth</a></li>
-                    <li><a href="product-detail.html">Product Detail</a></li>
-                    <li><a href="product-detail-rated.html">Product Detail Rated</a></li>
-                    <li><a href="search.html">Search</a></li>
-                  </ul>
-                </li>
-                <li><a href="#"><span class="menu-text">Shop <i class="menu-icon fa fa-angle-down"></i></span></a>
-                  <ul>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="wishlist.html">Wishlist</a></li>
-                    <li><a href="compare.html">Compare</a></li>
-                    <li><a href="track-your-order.html">Track Your Order</a></li>
-                    <li><a href="cart-empty.html">Cart Empty</a></li>
-                  </ul>
-                </li>
-                <li><a href="#"><span class="menu-text">Blog <i class="menu-icon fa fa-angle-down"></i></span></a>
-                  <ul>
-                    <li><a href="blog-list.html">Blog List</a></li>
-                    <li><a href="blog-grid-2.html">Blog Grid 2</a></li>
-                    <li><a href="blog-grid-3-no-sb.html">Blog Grid 3 No Sidebar</a></li>
-                    <li><a href="blog-grid-3-mansory-no-sb.html">Blog Grid 3 Mansory No Sidebar</a></li>
-                    <li><a href="blog-detail.html">Blog Detail</a></li>
-                  </ul>
-                </li>
-                <li><a href="about-us.html"><span class="menu-text">About Us</span></a></li>
-                <li><a href="contact.html"><span class="menu-text">Contact</span></a></li>
-                <li><a href="#"><span class="menu-text">Pages <i class="menu-icon fa fa-angle-down"></i></span></a>
-                  <ul class="dropdown-left">
-                    <li><a href="login.html">Login & Register</a></li>
-                    <li><a href="forgot-password.html">Forgot Password</a></li>
-                    <li><a href="faqs.html">Faqs</a></li>
-                    <li><a href="newsletter.html">Newsletter</a></li>
-                    <li><a href="shortcodes.html">Shortcodes</a></li>
-                    <li><a href="common-element.html">Common Element</a></li>
-                    <li><a href="error-page.html">Error Page</a></li>
-                    <li><a href="#"><span class="menu-text">Example menu item <i class="menu-icon fa fa-angle-down"></i></span></a>
+            <div class="header-logo" style="top: 3%; margin-left: -36px;"><a href="{{route('index')}}" title="Motor Vehikal"><img src="{{ asset('/') }}music_source/images/logo/logo_3.png" alt="logo"/></a></div>
+            <ul class="nav sf-menu" style="margin-top:20px">
+                    <li class="mega-columns"><a href="{{route('index')}}"><span class="menu-text">Home <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    </li>
+                    <li><a href="#"><span class="menu-text">Shop <i class="menu-icon fa fa-angle-down"></i></span></a>
                       <ul>
-                        <li><a href="#">Example menu item</a></li>
-                        <li><a href="#"><span class="menu-text">Example menu item <i class="menu-icon fa fa-angle-down"></i></span></a>
-                          <ul>
-                            <li><a href="#">Example menu item</a></li>
-                            <li><a href="#">Example menu item</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#"><span class="menu-text">Example menu item <i class="menu-icon fa fa-angle-down"></i></span></a>
-                          <ul class="dropdown-left">
-                            <li><a href="#">Example menu item</a></li>
-                            <li><a href="#">Example menu item</a></li>
-                          </ul>
-                        </li>
+                        <li><a href="{{route('apparels')}}">Apparels</a></li>
+                        <li><a href="{{route('accessories')}}">Accessories</a></li>
+                        <li><a href="{{route('limited_edition')}}">Limited Edition</a></li>
                       </ul>
                     </li>
+                    <li><a href="#"><span class="menu-text">Bands <i class="menu-icon fa fa-angle-down"></i></span></a>
+                      <ul>
+                        <li><a href="{{route('all.brand')}}">All Bands</a></li>
+                        <li><a href="{{route('brand.type','FOCK')}}">FOCK</a></li>
+                        <li><a href="{{route('brand.type','ROCK')}}">ROCK</a></li>
+                        <li><a href="{{route('brand.type','RB')}}">R&B</a></li>
+                        <li><a href="{{route('brand.type','JAZZ')}}">JAZZ</a></li>
+                        <li><a href="{{route('brand.type','RAB')}}">RAB</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="{{route('all.musics')}}"><span class="menu-text">Music <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    </li>
+                    <li><a href="{{route('all.events')}}"><span class="menu-text">Events <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    </li>
+                    <!-- <li><a href="{{route('album')}}"><span class="menu-text">Album <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    </li> -->
+                    <li><a href="{{route('all.fanclub')}}"><span class="menu-text">Fan Club <i class="menu-icon fa fa-angle-down"></i></span></a>
+                    </li>
+                    <li><a href="{{route('about')}}"><span class="menu-text">About Us</span></a></li>
+                    <li><a href="{{route('contact')}}"><span class="menu-text">Contact</span></a></li>
                   </ul>
-                </li>
-              </ul>
             </nav>
           </div>
         </div>
@@ -128,7 +95,6 @@
           <div class="off-canvas-header">
             <button class="btn-close-off-canvas click-close-off-canvas">x</button>
           </div>
-
           <div class="off-canvas-body">
             <div class="mv-aside mv-aside-search">
               <div class="aside-title mv-title-style-11">search</div>
@@ -142,7 +108,6 @@
               </div>
             </div>
             <!-- .mv-aside-search-->
-
             <div class="mv-aside mv-aside-filter-by-price">
               <div class="aside-title mv-title-style-11">filter by price</div>
               <div class="aside-body">
@@ -159,7 +124,6 @@
                     </div>
                   </div>
                 </form>
-
                 <nav class="filter-by-price-menu mv-menu-style-1">
                   <ul>
                     <li><a href="#" class="mv-icon-left-style-5">$10 - $50<span class="sub-text">&nbsp; (8)</span></a></li>

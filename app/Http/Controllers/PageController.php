@@ -70,12 +70,9 @@ class PageController extends Controller
         $limited_edition = Product::where('limited_edition', 1)->where('is_active', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $events = Event::inRandomOrder()->select('id','title','image','short_descp')->limit(12)->get();
         $deals = Product::where('is_active', 1)->inRandomOrder()->limit(2)->get();
-        $categories = Category::where('is_active', 1)->where('parent_id', 0)->orderBy('position', 'ASC')->get();
-        $featured_categories = Category::where('is_active', 1)->where('is_featured', 1)->get();
         $sliders = Slider::all();
         $top_sales = Product::where('is_active', 1)->orderBy('sold', 'DESC')->limit(3)->get();
-        $page = Page::find(1);
-        return view('theam.index', compact('products','brand', 'categories', 'featured_categories', 'deals', 'limited_edition', 'sliders', 'page', 'top_sales','events'));
+        return view('theam.index', compact('products','brand','deals', 'limited_edition', 'sliders','top_sales','events'));
     }
 
 
@@ -112,7 +109,7 @@ class PageController extends Controller
     }
     public function allbrand()
     {
-        $brands = Brand::orderBy('id', 'DESC')->get();
+        $brands = Brand::orderBy('id', 'DESC')->limit(8)->get();
         $musics = MusicModel::orderBy('id', 'DESC')->paginate(30);
         $category = Category::with('music')->orderBy('id', 'DESC')->get();
         return view('theam.all_brand', compact('brands','musics','category'));
@@ -156,16 +153,16 @@ class PageController extends Controller
         $brand = Brand::find($id);
         $products = Product::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(12);
         $musics = MusicModel::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
-        $category = Category::with('music')->where('parent_id', $brand->id)->orderBy('id', 'DESC')->get();
-        return view('theam.musics', compact('musics','category','products'));
+        $album = Album::orderBy('id', 'DESC')->paginate(12);
+        return view('theam.musics', compact('musics','album','products'));
     }
     public function brandprofile($id)
     {
         $brand = Brand::find($id);
+        $musics = MusicModel::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
         $products = Product::where('brand_id', $brand->id)->orderBy('id', 'DESC')->paginate(30);
-        $category = Category::with('music')->where('parent_id', $brand->id)->orderBy('id', 'DESC')->get();
         $album = Album::orderBy('id', 'DESC')->paginate(12);
-        return view('theam.brand_profile', compact('products','category','brand','album'));
+        return view('theam.brand_profile', compact('products','brand','album','musics'));
     }
     
     public function offer_products()

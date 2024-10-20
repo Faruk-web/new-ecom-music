@@ -52,7 +52,7 @@ HOME PARALLAX SLIDESHOW
 }
 @media screen and (max-width: 991px) {
   .home-1-slideshow {
-    margin-top: 60px;
+    /* margin-top: 60px; */
   }
 }
 .home-1-slideshow .mv-slider-control-btn {
@@ -461,7 +461,8 @@ HOME PARALLAX SLIDESHOW
 /* HOME 3 FEATURED PRODUCTS
 /* --------------------------------------------------------------------- */
 .home-3-featured-products {
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
+  background: #200000;
 }
 @media screen and (max-width: 991px) {
   .home-3-featured-products {
@@ -488,6 +489,7 @@ HOME PARALLAX SLIDESHOW
 .home-3-new-trending-item {
   padding: 70px 0 15px;
   margin-bottom: 0px;
+  background: #200000;
 }
 @media screen and (max-width: 991px) {
   .home-3-new-trending-item {

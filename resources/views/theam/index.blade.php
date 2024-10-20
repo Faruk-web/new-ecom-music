@@ -1,5 +1,12 @@
 @extends('frontand.master')
 @section('content')
+<style>
+  @media only screen and (max-width: 600px) {
+  .brand_cart_responsip{
+    width: 170px!important;
+  }
+}
+</style>
     <!--slider wrapper end-->
       <section class="home-1-slideshow mv-wrap">
         <div id="home-1-slideshow" class="mv-caroufredsel">
@@ -43,9 +50,9 @@
               <div id="home-3-logo-brand-slider" class="home-3-logo-brand-slider mv-caroufredsel">
                 <div class="block-17-slider-inner">
                   <div class="row">
-                    <ul class="mv-slider-wrapper">
+                    <ul class="mv-slider-wrapper" style="z-index:1050!important;">
                     @foreach($brand as $item)
-                      <li class="mv-slider-item col-xs-6 col-sm-4 col-md-2">
+                      <li class="mv-slider-item brand_cart_responsip col-xs-6 col-sm-4 col-md-2">
                         <div class="mv-dp-table align-middle slider-item-inner">
                           <div class="mv-dp-table-cell"><a  target="_blank"><img style="border-radius: 123px;" src="{{ asset('images/brand/'. $item->image)  }}" alt="logo_brand"/></a></div>
                         </div>
@@ -64,10 +71,10 @@
                                     <div class="content-hover">
                                       <div class="content-button mv-btn-group text-center">
                                         <div class="group-inner">
-                                        <a class="mv-btn mv-btn-style-1" style="width: 278px;background-image:none!important" href="{{route('products', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Shops</span></span></a>
-                                          <a  class="mv-btn mv-btn-style-1" style="width: 278px;background-image:none!important" style="width: 278px;" href="{{route('musics', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Musics</span></span></a>
-                                          <a  class="mv-btn mv-btn-style-1" style="width: 278px;background-image:none!important" href="{{route('events', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Events</span></span></a>
-                                          <a class="mv-btn mv-btn-style-1" style="width: 278px;background-image:none!important" href="{{route('brand.profile', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Profile</span></span></a>
+                                        <a class="mv-btn mv-btn-style-1" style="width: 270px;background-image:none!important" href="{{route('products', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Shops</span></span></a>
+                                          <a  class="mv-btn mv-btn-style-1" style="width: 270px;background-image:none!important" href="{{route('musics', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Musics</span></span></a>
+                                          <a  class="mv-btn mv-btn-style-1" style="width: 270px;background-image:none!important" href="{{route('events', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Events</span></span></a>
+                                          <a class="mv-btn mv-btn-style-1" style="width: 270px;background-image:none!important" href="{{route('brand.profile', $item->id)}}"><span class="btn-inner"><i class="btn-icon fa-li fa fa-check"></i><span class="btn-text">Profile</span></span></a>
                                           
                                         </div>
                                       </div>
@@ -140,7 +147,7 @@
                               @else
                               <div class="content-price"><span class="new-price">&#2547; {{ $product->price }}</span></div>
                           @endif
-                            
+                          <div class="content-desc"><a href="{{ route('single.product', [$product->id, Str::slug($product->title)]) }}" title="RST Full Zipped Sweatshirt" class="mv-overflow-ellipsis">{{$product->brand->title}}</a></div>
                             <div class="content-desc"><a href="{{ route('single.product', [$product->id, Str::slug($product->title)]) }}" title="RST Full Zipped Sweatshirt" class="mv-overflow-ellipsis">{{$product->title}}</a></div>
                           </div>
                         </div>
